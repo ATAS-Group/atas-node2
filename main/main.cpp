@@ -12,17 +12,33 @@
 #include <hal.h>
 #include <SPI.h>
 
+// Display, Waveshare 1.54 200x200
+#include "GxEPD.h"
+#include "GxGDEW0154Z04.h"
+#include "GxIO.h"
+#include "GxIO_SPI.h"
+#include "images.h"
+
+// font
+#include "FreeSans12pt7b.h"
+#include "FreeSans9pt7b.h"
+
 // already declared in pins_arduino.h
 //static const uint8_t MISO = 19; 	// blue
 //static const uint8_t MOSI = 23; 	// blue
 //static const uint8_t SCK = 18; 	// yellow
-static const uint8_t PIN_CS = 5; 		// orange
+static const uint8_t LORA_PIN_CS = 2; 		// orange
 
 //static const int PIN_DC =  17; 	// green
-static const int PIN_RESET = 16; 	// white
+static const int LORA_PIN_RESET = 16; 	// white
 //static const int PIN_BUSY = 4; 		// violett
-static const int PIN_DIO0 = 32;
-static const int PIN_DIO1 = 33;
+static const int LORA_PIN_DIO0 = 32;
+static const int LORA_PIN_DIO1 = 33;
+
+static const int DISPLAY_PIN_CS = 5; 		// orange
+static const int DISPLAY_PIN_DC =  17; 	// green
+static const int DISPLAY_PIN_RESET = 16; 	// white
+static const int DISPLAY_PIN_BUSY = 4; 		// violett
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
@@ -49,14 +65,74 @@ static osjob_t sendjob;
 // cycle limitations).
 const unsigned TX_INTERVAL = 60;
 
+GxIO_Class io(SPI, DISPLAY_PIN_CS, DISPLAY_PIN_DC, DISPLAY_PIN_RESET); // arbitrary selection of 17, 16
+GxEPD_Class display(io, DISPLAY_PIN_RESET, DISPLAY_PIN_BUSY); // arbitrary selection of (16), 4
+const GFXfont* fontsans9 = &FreeSans9pt7b;
+const GFXfont* fontsans12 = &FreeSans12pt7b;
+
+
+void initDisplay(){
+	display.init();
+}
+
+void displayAlarmOn(){	
+	display.setFont(fontsans12);
+	display.setCursor(48, 175);
+	display.fillScreen(GxEPD_WHITE);
+	display.println("Alarm ON");
+	display.drawBitmap(alarmbell, 36, 16, 128, 128, GxEPD_BLACK);
+	display.update();
+}
+
+void displayDashboard(){
+	display.setFont(fontsans9);	
+	display.fillScreen(GxEPD_WHITE);
+	display.drawBitmap(location, 10, 10, 40, 40, GxEPD_BLACK);
+	display.setCursor(60, 20);
+	display.println("Lat: 46.212134");
+	display.setCursor(60, 45);
+	display.println("Lng: 7.8932157");
+	display.update();
+}
+
+void displayAlarm(int alarm){
+	display.setFont(fontsans12);
+	display.setCursor(48, 175);
+	display.fillScreen(GxEPD_WHITE);
+	
+	switch(alarm) {
+	    case 1 : 
+			display.drawBitmap(avalanche, 36, 16, 128, 128, GxEPD_BLACK);
+			display.println("Avalanche");
+			printf("Triggered Alarm: Avalanche\n");
+			break;
+	    case 2 : 
+			display.drawBitmap(landslide, 36, 16, 128, 128, GxEPD_BLACK);
+			display.println("Landslide");
+			printf("Triggered Alarm: Landslide\n");
+	    	break;
+		case 3:
+			display.drawBitmap(snowflake, 36, 16, 128, 128, GxEPD_BLACK);
+			display.setCursor(42, 175);
+			display.println("Snowstorm");
+			printf("Triggered Alarm: Snowstorm\n");
+			break;
+		default:
+			display.println("Error");
+			printf("displayAlarm: error, no alarm defined");
+			break;
+	}
+	display.update();
+}
+
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
-    .nss = PIN_CS,
+    .nss = LORA_PIN_CS,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = PIN_RESET,
+    .rst = DISPLAY_PIN_RESET,
 	// DIO3 not used, FSK only
-    .dio = {PIN_DIO0, PIN_DIO1, LMIC_UNUSED_PIN},
+    .dio = {LORA_PIN_DIO0, LORA_PIN_DIO1, LMIC_UNUSED_PIN},
 };
 
 void do_send(osjob_t* j){
@@ -79,20 +155,19 @@ void onEvent (ev_t ev) {
             printf("EV_SCAN_TIMEOUT\n");
             break;
         case EV_BEACON_FOUND:
-             printf("EV_BEACON_FOUND\n");
+            printf("EV_BEACON_FOUND\n");
             break;
         case EV_BEACON_MISSED:
-             printf("EV_BEACON_MISSED\n");
+            printf("EV_BEACON_MISSED\n");
             break;
         case EV_BEACON_TRACKED:
-             printf("EV_BEACON_TRACKED\n");
+            printf("EV_BEACON_TRACKED\n");
             break;
         case EV_JOINING:
-             printf("EV_JOINING\n");
+            printf("EV_JOINING\n");
             break;
         case EV_JOINED:
-             printf("EV_JOINED\n");
-
+            printf("EV_JOINED\n");
             // Disable link check validation (automatically enabled
             // during join, but not supported by TTN at this time).
             LMIC_setLinkCheckMode(0);
@@ -146,7 +221,17 @@ extern "C" void app_main()
 	// init Arduino subsystem
 	initArduino();
 	 
-	printf("ATAS Node 2 - Lora Example!\n");
+	printf("ATAS Node 2\n");
+	
+	/* ----- Display -----*/
+	initDisplay();
+	display.setTextColor(GxEPD_BLACK);
+	
+	displayDashboard();
+	displayAlarmOn();
+	displayAlarm(1);
+	displayAlarm(2);
+	displayAlarm(3);
 	
 	// LMIC init
     printf("OS Init\n");
