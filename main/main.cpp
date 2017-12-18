@@ -1,27 +1,8 @@
-#include <driver/gpio.h>
-#include <esp_log.h>
-#include <stdio.h>
-#include <string.h>
-#include "sdkconfig.h"
-
-// Arduino, allowes GxEPD
-#include "Arduino.h"
+#include "main.h"
 
 // LMIC
 #include <lmic.h>
 #include <hal.h>
-#include <SPI.h>
-
-// Display, Waveshare 1.54 200x200
-#include "GxEPD.h"
-#include "GxGDEW0154Z04.h"
-#include "GxIO.h"
-#include "GxIO_SPI.h"
-#include "images.h"
-
-// font
-#include "FreeSans12pt7b.h"
-#include "FreeSans9pt7b.h"
 
 // already declared in pins_arduino.h
 //static const uint8_t MISO = 19; 	// blue
@@ -34,11 +15,6 @@ static const int LORA_PIN_RESET = 16; 	// white
 //static const int PIN_BUSY = 4; 		// violett
 static const int LORA_PIN_DIO0 = 32;
 static const int LORA_PIN_DIO1 = 33;
-
-static const int DISPLAY_PIN_CS = 5; 		// orange
-static const int DISPLAY_PIN_DC =  17; 	// green
-static const int DISPLAY_PIN_RESET = 16; 	// white
-static const int DISPLAY_PIN_BUSY = 4; 		// violett
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
@@ -65,15 +41,9 @@ static osjob_t sendjob;
 // cycle limitations).
 const unsigned TX_INTERVAL = 60;
 
-GxIO_Class io(SPI, DISPLAY_PIN_CS, DISPLAY_PIN_DC, DISPLAY_PIN_RESET); // arbitrary selection of 17, 16
-GxEPD_Class display(io, DISPLAY_PIN_RESET, DISPLAY_PIN_BUSY); // arbitrary selection of (16), 4
-const GFXfont* fontsans9 = &FreeSans9pt7b;
-const GFXfont* fontsans12 = &FreeSans12pt7b;
 
+/*
 
-void initDisplay(){
-	display.init();
-}
 
 void displayAlarmOn(){	
 	display.setFont(fontsans12);
@@ -84,16 +54,7 @@ void displayAlarmOn(){
 	display.update();
 }
 
-void displayDashboard(){
-	display.setFont(fontsans9);	
-	display.fillScreen(GxEPD_WHITE);
-	display.drawBitmap(location, 10, 10, 40, 40, GxEPD_BLACK);
-	display.setCursor(60, 20);
-	display.println("Lat: 46.212134");
-	display.setCursor(60, 45);
-	display.println("Lng: 7.8932157");
-	display.update();
-}
+
 
 void displayAlarm(int alarm){
 	display.setFont(fontsans12);
@@ -123,14 +84,14 @@ void displayAlarm(int alarm){
 			break;
 	}
 	display.update();
-}
+}*/
 
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
     .nss = LORA_PIN_CS,
     .rxtx = LMIC_UNUSED_PIN,
-    .rst = DISPLAY_PIN_RESET,
+    .rst = LORA_PIN_RESET,
 	// DIO3 not used, FSK only
     .dio = {LORA_PIN_DIO0, LORA_PIN_DIO1, LMIC_UNUSED_PIN},
 };
@@ -223,16 +184,10 @@ extern "C" void app_main()
 	 
 	printf("ATAS Node 2\n");
 	
-	/* ----- Display -----*/
-	initDisplay();
-	display.setTextColor(GxEPD_BLACK);
+	atasdisplay = new Atasdisplay();
+	atasdisplay->displayDashboard();
 	
-	displayDashboard();
-	displayAlarmOn();
-	displayAlarm(1);
-	displayAlarm(2);
-	displayAlarm(3);
-	
+	/*
 	// LMIC init
     printf("OS Init\n");
 	os_init();
@@ -247,6 +202,17 @@ extern "C" void app_main()
 	while(1){
 		os_runloop_once();
 		delay(2);
-	}
+	}*/
+	
+	/* ----- Display -----*/
+	/*
+	initDisplay();
+	display.setTextColor(GxEPD_BLACK);
+	
+	displayDashboard();
+	displayAlarmOn();
+	displayAlarm(1);
+	displayAlarm(2);
+	displayAlarm(3);*/
 }
 
