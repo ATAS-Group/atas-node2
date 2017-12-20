@@ -54,37 +54,7 @@ void displayAlarmOn(){
 	display.update();
 }
 
-
-
-void displayAlarm(int alarm){
-	display.setFont(fontsans12);
-	display.setCursor(48, 175);
-	display.fillScreen(GxEPD_WHITE);
-	
-	switch(alarm) {
-	    case 1 : 
-			display.drawBitmap(avalanche, 36, 16, 128, 128, GxEPD_BLACK);
-			display.println("Avalanche");
-			printf("Triggered Alarm: Avalanche\n");
-			break;
-	    case 2 : 
-			display.drawBitmap(landslide, 36, 16, 128, 128, GxEPD_BLACK);
-			display.println("Landslide");
-			printf("Triggered Alarm: Landslide\n");
-	    	break;
-		case 3:
-			display.drawBitmap(snowflake, 36, 16, 128, 128, GxEPD_BLACK);
-			display.setCursor(42, 175);
-			display.println("Snowstorm");
-			printf("Triggered Alarm: Snowstorm\n");
-			break;
-		default:
-			display.println("Error");
-			printf("displayAlarm: error, no alarm defined");
-			break;
-	}
-	display.update();
-}*/
+*/
 
 
 // Pin mapping
@@ -185,7 +155,15 @@ extern "C" void app_main()
 	printf("ATAS Node 2\n");
 	
 	atasdisplay = new Atasdisplay();
+	
+	// start, show dashboard
 	atasdisplay->displayDashboard();
+	
+	// testing
+	atasdisplay->displayManualAlarmIsOn();
+	atasdisplay->displayAlarm(avalanche);
+	atasdisplay->displayAlarm(landslide);
+	atasdisplay->displayAlarm(snow);
 	
 	/*
 	// LMIC init

@@ -23,19 +23,20 @@ static const int DISPLAY_PIN_RESET = 16; 	// white
 static const int DISPLAY_PIN_BUSY = 4; 		// violett
 
 // State of the Display
-enum Displaystate { avalanche, snow, landslide, dashboard };
+enum Alarm { avalanche, snow, landslide };
 
 
 class Atasdisplay{
 	private:
-		Displaystate state = dashboard;
+		Alarm state;
 		const GFXfont* fontsans9 = &FreeSans9pt7b;
 		const GFXfont* fontsans12 = &FreeSans12pt7b;
 		GxIO_SPI *io;
 		GxEPD_Class *display;
 		
    	public:
-		void setDisplay(Displaystate state);
-		Atasdisplay();
 		void displayDashboard();
+		void displayAlarm(Alarm alarm);
+		void displayManualAlarmIsOn();
+		Atasdisplay();
 };
