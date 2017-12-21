@@ -24,6 +24,7 @@ port/cJSON_Utils.o: \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/machine/types.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/sched.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/stdio.h \
+ /Users/martinschmidli/esp/esp-idf/components/newlib/include/limits.h \
  /Users/martinschmidli/esp/esp-idf/components/json/port/include/cJSON_Utils.h \
  /Users/martinschmidli/esp/esp-idf/components/json/include/cJSON.h
 
@@ -74,6 +75,8 @@ port/cJSON_Utils.o: \
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/sched.h:
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/stdio.h:
+
+/Users/martinschmidli/esp/esp-idf/components/newlib/include/limits.h:
 
 /Users/martinschmidli/esp/esp-idf/components/json/port/include/cJSON_Utils.h:
 

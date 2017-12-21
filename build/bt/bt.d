@@ -87,7 +87,7 @@ bt.o: /Users/martinschmidli/esp/esp-idf/components/bt/./bt.c \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/core-macros.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_task.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_phy_init.h \
- /Users/martinschmidli/esp/esp-idf/components/bt/include/bt.h \
+ /Users/martinschmidli/esp/esp-idf/components/bt/include/esp_bt.h \
  /Users/martinschmidli/esp/esp-idf/components/log/include/esp_log.h \
  /Users/martinschmidli/esp/esp-idf/components/log/include/esp_log_internal.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_pm.h \
@@ -275,7 +275,7 @@ bt.o: /Users/martinschmidli/esp/esp-idf/components/bt/./bt.c \
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_phy_init.h:
 
-/Users/martinschmidli/esp/esp-idf/components/bt/include/bt.h:
+/Users/martinschmidli/esp/esp-idf/components/bt/include/esp_bt.h:
 
 /Users/martinschmidli/esp/esp-idf/components/log/include/esp_log.h:
 

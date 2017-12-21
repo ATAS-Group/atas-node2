@@ -25,6 +25,7 @@ Atasgps::Atasgps(){
     uart_config.stop_bits = UART_STOP_BITS_1;
     uart_config.parity = UART_PARITY_DISABLE;
     uart_config.flow_ctrl = UART_HW_FLOWCTRL_DISABLE;
+	uart_config.rx_flow_ctrl_thresh = 122,
 
 	//Configure UART parameters
     uart_param_config(UART_NUM_2, &uart_config);
@@ -63,7 +64,6 @@ char * Atasgps::readLine(){
 
 array<double,3> Atasgps::getLocation(){
     int datareceived = 0;
-	
 	while(datareceived == 0){
 		// read line from gps
 		char *line = readLine();

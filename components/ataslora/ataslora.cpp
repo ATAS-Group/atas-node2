@@ -36,7 +36,7 @@ void Ataslora::init(){
 void Ataslora::setData(osjob_t* job, std::string messageString) {
     // Check if there is not a current TX/RX job running
     if (LMIC.opmode & OP_TXRXPEND) {
-        printf("OP_TXRXPEND, not sending\n");
+        printf("ataslora: OP_TXRXPEND, not sending\n");
     } else{
 		// convert string -> unsigned char *
 		unsigned char* message = (unsigned char*)messageString.c_str();

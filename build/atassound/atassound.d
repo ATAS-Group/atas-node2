@@ -45,7 +45,23 @@ atassound.o: \
  /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_system.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_sleep.h \
+ /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/touch_pad.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_intr.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/ets_sys.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/xtensa_api.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/hal.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/xtensa_context.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/tie.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/corebits.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/system.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtruntime-frames.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtensa-versions.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core-matmap.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/touch_channel.h
 
 /Users/martinschmidli/esp/projects/atas-node2/components/atassound/include/atassound.h:
 
@@ -138,4 +154,36 @@ atassound.o: \
 /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_system.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_sleep.h:
+
+/Users/martinschmidli/esp/esp-idf/components/driver/include/driver/touch_pad.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_intr.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/ets_sys.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/xtensa_api.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/hal.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/xtensa_context.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/tie.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/corebits.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/system.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtruntime-frames.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtensa-versions.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core-matmap.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/touch_channel.h:
 /Users/martinschmidli/esp/projects/atas-node2/components/atassound/./atassound.cpp:

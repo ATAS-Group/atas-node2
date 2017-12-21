@@ -49,24 +49,6 @@ void onEvent (ev_t ev) {
 				// set Dangerzone
 				printf("ataslora: received data: %d\n", payload);
 				inDangerzone = payload;
-				
-				// in Danger
-				if(inDangerzone > 0){
-					// show danger
-					// -1 to create a valid Alarm enum
-					atasdisplay->displayAlarm(static_cast<Alarm>(inDangerzone));
-					// play sound
-					//atassound->enable();
-					printf("PLAY SOUND\n");
-				}
-				// no Danger
-				else{
-					atasdisplay->displayDashboard();
-					// mute soundalarm
-					/*if(atassound->getState() == true){
-		            	atassound->mute();
-					}*/
-				}
 			}
 			ataslora->setState(1);	
 			break;
@@ -91,6 +73,52 @@ void onEvent (ev_t ev) {
             break;
     }
 }
+void hello(void *args){
+	buttonPressed = !buttonPressed;
+}
+
+void gpsHandler(void * parameter){	
+	while(1){
+		// try to get data
+		gpsLocation = atasgps->getLocation();
+		
+		if((gpsLocation[0] == 999) || (gpsLocation[1] == 999)){
+			receivedGPSData = false;
+			printf("atasgps: no valid data received yet, retry in 5s\n");
+		}else{
+			printf("atasgps: data received\n");
+			receivedGPSData = true;
+		}
+		printf("Lat:%f\n",gpsLocation[0]);
+		printf("Lng:%f\n",gpsLocation[1]);
+		vTaskDelay(30000 / portTICK_RATE_MS);
+	}
+}
+
+
+void alarmHandler(void * parameter){
+	while(1){
+		// in Danger
+		if(inDangerzone > 0){
+			// show danger
+			atasdisplay->displayAlarm(static_cast<Alarm>(inDangerzone));
+			// play sound
+			if(atassound->getState() == false){
+				atassound->enable();
+			}
+		}
+		// no Danger
+		else{
+			printf("NO DANGER\n");
+			atasdisplay->displayDashboard();
+			// mute soundalarm
+			if(atassound->getState() == true){
+				atassound->mute();
+			}
+		}
+		vTaskDelay(5000 / portTICK_RATE_MS);
+	}
+}
 
 extern "C" void app_main()
 {    
@@ -102,57 +130,16 @@ extern "C" void app_main()
 	atasdisplay = new Atasdisplay();
 	ataslora = new Ataslora();
 	atasgps = new Atasgps();
+	atasbutton = new Atasbutton(&hello);
+	atassound = new Atassound();
 	
-	// start, show dashboard
-	atasdisplay->displayDashboard();
+	xTaskCreate(&gpsHandler,"gpsHandler",10000,NULL,2,NULL); 
+	xTaskCreate(&alarmHandler,"alarmHandler",10000,NULL,3,NULL); 
 	
-	// init
+	// ataslora
 	ataslora->init();
 	
 	while(1){
-			
-		// ***** Button *****
-		// get Button state
-		//buttonPressed =  atasbutton->getState()
-		
-		
-		
-		
-		
-		// ***** Button *****			
-		
-
-		// handle sound
-		/*if(inDangerzone == 0){
-			if(atassound->getState() == true){
-                                atassound->mute();
-    			}
-                }
-                    else if(inDangerzone == 1){
-                            printf("PLAY SOUND\n");
-			//atassound->enable();
-                    }*/
-
-		// **** GPS ***** 				
-		// get gps data, max try -> gpsRetryCount
-		gpsTryCount = 0;
-		while((isnan(gpsLocation[0])) || (isnan(gpsLocation[1])) || (gpsTryCount < gpsRetryCount)){
-			// get GPS Data
-			// 0, latitude | 1, longitude
-			gpsLocation = atasgps->getLocation();
-			gpsTryCount++;
-		}
-		
-		if((isnan(gpsLocation[0])) || (isnan(gpsLocation[1]))){
-			receivedGPSData = false;
-			printf("atasgps: no valid data received yet");
-		}else{
-			printf("atasgps: data received");
-			receivedGPSData = true;
-		}
-			
-		// ***** Lora *****
-		// build string 
 		ostringstream oss;
 
 		// prepare data
@@ -168,8 +155,7 @@ extern "C" void app_main()
 		// run, until the next tx succeds
 		while(ataslora->getState() == 0){
 			os_runloop_once();
+			delay(2);
 		}
-
-		sleep(txInterval);
 	}
 }

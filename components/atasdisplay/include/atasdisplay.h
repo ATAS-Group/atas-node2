@@ -24,11 +24,11 @@ static const int DISPLAY_PIN_BUSY = 4; 		// violett
 
 // State of the Display
 enum Alarm { avalanche=1, snow, landslide };
-
+enum Displaystate {indangerzone,dashboard,manualalarm};
 
 class Atasdisplay{
 	private:
-		Alarm state;
+		Displaystate state;
 		const GFXfont* fontsans9 = &FreeSans9pt7b;
 		const GFXfont* fontsans12 = &FreeSans12pt7b;
 		GxIO_SPI *io;

@@ -1,7 +1,12 @@
 using namespace std;
 
-#include <driver/gpio.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
+#include <freertos/task.h>
+#include "esp_system.h"
 #include <esp_log.h>
+
+#include <driver/gpio.h>
 #include <stdio.h>
 #include <string.h>
 #include "sdkconfig.h"
@@ -24,9 +29,9 @@ using namespace std;
 #include "ataslora.h"
 #include "atasgps.h"
 #include "atassound.h"
+#include "atasbutton.h"
 
-int inDangerzone;
-bool buttonPressed;
+int inDangerzone = 0;
 int txInterval = 20;
 
 // Lora
@@ -36,15 +41,14 @@ static osjob_t sendDataJob;
 // GPS
 Atasgps* atasgps;
 array<double,3>  gpsLocation;
-const int gpsRetryCount = 5;
-int gpsTryCount = 0;
 bool receivedGPSData = false;
 
 // Sound
 Atassound* atassound;
 
 // Button Handling
-//Atasbutton* atasbutton;
+Atasbutton* atasbutton;
+bool buttonPressed;
 
 // Display
 Atasdisplay* atasdisplay;

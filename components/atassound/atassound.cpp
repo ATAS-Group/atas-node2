@@ -2,7 +2,7 @@
 
 Atassound::Atassound(){
 	ledc_timer_config_t timer;
-		timer.duty_resolution = PWM_BITS;
+		timer.bit_num = PWM_BITS;
 		timer.freq_hz = PWM_FREQ;
 		timer.speed_mode = PWM_MODE;
 		timer.timer_num = PWM_TIMER;
@@ -19,19 +19,16 @@ Atassound::Atassound(){
 	ledc_channel_config(&channel);
 }
 
-
 void Atassound::mute(){
+	isenabled = false;
 	ledc_set_duty(PWM_MODE, PWM_CHANNEL, PWM_LOW);
 	ledc_update_duty(PWM_MODE, PWM_CHANNEL);
-	isenabled = false;
-	printf("Atassound: mute\n");
 }
 
 void Atassound::enable(){
+	isenabled = true;
 	ledc_set_duty(PWM_MODE, PWM_CHANNEL, PWM_HIGH);
 	ledc_update_duty(PWM_MODE, PWM_CHANNEL);
-	isenabled = true;
-	printf("Atassound: enable\n");
 }
 
 bool Atassound::getState(){

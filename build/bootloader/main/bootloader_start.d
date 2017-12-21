@@ -44,6 +44,7 @@ bootloader_start.o: \
  /Users/martinschmidli/esp/esp-idf/components/bootloader_support/include_priv/bootloader_flash.h \
  /Users/martinschmidli/esp/esp-idf/components/bootloader_support/include_priv/bootloader_random.h \
  /Users/martinschmidli/esp/esp-idf/components/bootloader/subproject/main/./bootloader_config.h \
+ /Users/martinschmidli/esp/esp-idf/components/bootloader_support/include/bootloader_clock.h \
  /Users/martinschmidli/esp/esp-idf/components/bootloader/subproject/main/./flash_qio_mode.h
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_attr.h:
@@ -133,6 +134,8 @@ bootloader_start.o: \
 /Users/martinschmidli/esp/esp-idf/components/bootloader_support/include_priv/bootloader_random.h:
 
 /Users/martinschmidli/esp/esp-idf/components/bootloader/subproject/main/./bootloader_config.h:
+
+/Users/martinschmidli/esp/esp-idf/components/bootloader_support/include/bootloader_clock.h:
 
 /Users/martinschmidli/esp/esp-idf/components/bootloader/subproject/main/./flash_qio_mode.h:
 /Users/martinschmidli/esp/esp-idf/components/bootloader/subproject/main/./bootloader_start.c:

@@ -87,9 +87,6 @@ i2c.o: /Users/martinschmidli/esp/esp-idf/components/driver/./i2c.c \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/list.h \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/ringbuf.h \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h \
- /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/event_groups.h \
- /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/timers.h \
- /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/task.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h \
@@ -273,12 +270,6 @@ i2c.o: /Users/martinschmidli/esp/esp-idf/components/driver/./i2c.c \
 /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/ringbuf.h:
 
 /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h:
-
-/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/event_groups.h:
-
-/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/timers.h:
-
-/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/task.h:
 
 /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
 

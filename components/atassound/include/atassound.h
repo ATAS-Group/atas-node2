@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "driver/ledc.h"
+#include "esp_system.h"
+#include "driver/gpio.h"
 
 #define PWM_PIN 21
 #define PWM_BITS LEDC_TIMER_10_BIT
@@ -13,7 +15,6 @@
 class Atassound
 {
     private:
-		ledc_timer_config_t timer_conf;
 		bool isenabled = false;
 	public:
 		Atassound();

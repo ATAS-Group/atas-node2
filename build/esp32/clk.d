@@ -44,20 +44,21 @@ clk.o: /Users/martinschmidli/esp/esp-idf/components/esp32/./clk.c \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/rtc.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/rtc.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/rtc_cntl_reg.h \
- /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
- /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/i2s_reg.h \
  /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_err.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/stdio.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/stdio.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/core-macros.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/hal.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtensa-versions.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core-matmap.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/tie.h
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/tie.h \
+ /Users/martinschmidli/esp/esp-idf/components/bootloader_support/include/bootloader_clock.h
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/stdint.h:
 
@@ -149,12 +150,6 @@ clk.o: /Users/martinschmidli/esp/esp-idf/components/esp32/./clk.c \
 
 /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/rtc_cntl_reg.h:
 
-/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
-
-/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h:
-
-/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h:
-
 /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/i2s_reg.h:
 
 /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h:
@@ -164,6 +159,12 @@ clk.o: /Users/martinschmidli/esp/esp-idf/components/esp32/./clk.c \
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/stdio.h:
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/stdio.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/core-macros.h:
 
@@ -176,4 +177,6 @@ clk.o: /Users/martinschmidli/esp/esp-idf/components/esp32/./clk.c \
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/core-matmap.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/tie.h:
+
+/Users/martinschmidli/esp/esp-idf/components/bootloader_support/include/bootloader_clock.h:
 /Users/martinschmidli/esp/esp-idf/components/esp32/./clk.c:
