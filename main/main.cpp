@@ -1,83 +1,5 @@
 #include "main.h"
 
-// LMIC
-#include <lmic.h>
-#include <hal.h>
-
-// already declared in pins_arduino.h
-//static const uint8_t MISO = 19; 	// blue
-//static const uint8_t MOSI = 23; 	// blue
-//static const uint8_t SCK = 18; 	// yellow
-static const uint8_t LORA_PIN_CS = 2; 		// orange
-
-//static const int PIN_DC =  17; 	// green
-static const int LORA_PIN_RESET = 16; 	// white
-//static const int PIN_BUSY = 4; 		// violett
-static const int LORA_PIN_DIO0 = 32;
-static const int LORA_PIN_DIO1 = 33;
-
-// This EUI must be in little-endian format, so least-significant-byte
-// first. When copying an EUI from ttnctl output, this means to reverse
-// the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3,
-// 0x70.
-static const u1_t PROGMEM APPEUI[8]={ 0x4A, 0x40, 0x00, 0xF0, 0x7E, 0xD5, 0xB3, 0x70 };
-void os_getArtEui (u1_t* buf) { memcpy_P(buf, APPEUI, 8);}
-
-// This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8]= { 0x06, 0x58, 0x15, 0xC0, 0x06, 0xDE, 0x29, 0x00 };
-void os_getDevEui (u1_t* buf) { memcpy_P(buf, DEVEUI, 8);}
-
-// This key should be in big endian format (or, since it is not really a
-// number but a block of memory, endianness does not really apply). In
-// practice, a key taken from ttnctl can be copied as-is.
-// The key shown here is the semtech default key.
-static const u1_t PROGMEM APPKEY[16] = { 0xE8, 0xAD, 0x93, 0x8D, 0x8F, 0x77, 0x65, 0xBE, 0x11, 0xCF, 0x87, 0xEE, 0x03, 0xC8, 0x7F, 0xA5 };
-void os_getDevKey (u1_t* buf) {  memcpy_P(buf, APPKEY, 16);}
-
-static uint8_t mydata[] = "Hello, world!";
-static osjob_t sendjob;
-
-// Schedule TX every this many seconds (might become longer due to duty
-// cycle limitations).
-const unsigned TX_INTERVAL = 60;
-
-
-/*
-
-
-void displayAlarmOn(){	
-	display.setFont(fontsans12);
-	display.setCursor(48, 175);
-	display.fillScreen(GxEPD_WHITE);
-	display.println("Alarm ON");
-	display.drawBitmap(alarmbell, 36, 16, 128, 128, GxEPD_BLACK);
-	display.update();
-}
-
-*/
-
-
-// Pin mapping
-const lmic_pinmap lmic_pins = {
-    .nss = LORA_PIN_CS,
-    .rxtx = LMIC_UNUSED_PIN,
-    .rst = LORA_PIN_RESET,
-	// DIO3 not used, FSK only
-    .dio = {LORA_PIN_DIO0, LORA_PIN_DIO1, LMIC_UNUSED_PIN},
-};
-
-void do_send(osjob_t* j){
-    // Check if there is not a current TX/RX job running
-    if (LMIC.opmode & OP_TXRXPEND) {
-        printf("OP_TXRXPEND, not sending\n");
-    } else {
-        // Prepare upstream data transmission at the next possible time.
-        LMIC_setTxData2(1, mydata, sizeof(mydata)-1, 0);
-        printf("Packet queued\n");
-    }
-    // Next TX is scheduled after TX_COMPLETE event.
-}
-
 void onEvent (ev_t ev) {
     Serial.print(os_getTime());
     Serial.print(": ");
@@ -98,7 +20,7 @@ void onEvent (ev_t ev) {
             printf("EV_JOINING\n");
             break;
         case EV_JOINED:
-            printf("EV_JOINED\n");
+            printf("ataslora: joined\n");
             // Disable link check validation (automatically enabled
             // during join, but not supported by TTN at this time).
             LMIC_setLinkCheckMode(0);
@@ -114,17 +36,40 @@ void onEvent (ev_t ev) {
             break;
             break;
         case EV_TXCOMPLETE:
-            printf("EV_TXCOMPLETE (includes waiting for RX windows)\n");
-            if (LMIC.txrxFlags & TXRX_ACK)
-              printf("Received ack\n");
-            if (LMIC.dataLen) {
-              printf("Received ");
-              printf("%d",LMIC.dataLen);
-              printf(" bytes of payload\n");
-            }
-            // Schedule next transmission
-            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
-            break;
+		printf("ataslora: tx complete\n");
+			if (LMIC.txrxFlags & TXRX_ACK){printf("ataslora: received ack\n");}
+		    if (LMIC.dataLen) {
+				printf("ataslora: received downlink message\n");
+
+				uint8_t payload = 0;
+				for (int i = 0; i < LMIC.dataLen; i++) {
+	        		payload = LMIC.frame[LMIC.dataBeg + i];
+	   			}
+				
+				// set Dangerzone
+				printf("ataslora: received data: %d\n", payload);
+				inDangerzone = payload;
+				
+				// in Danger
+				if(inDangerzone > 0){
+					// show danger
+					// -1 to create a valid Alarm enum
+					atasdisplay->displayAlarm(static_cast<Alarm>(inDangerzone));
+					// play sound
+					//atassound->enable();
+					printf("PLAY SOUND\n");
+				}
+				// no Danger
+				else{
+					atasdisplay->displayDashboard();
+					// mute soundalarm
+					/*if(atassound->getState() == true){
+		            	atassound->mute();
+					}*/
+				}
+			}
+			ataslora->setState(1);	
+			break;
         case EV_LOST_TSYNC:
             printf("EV_LOST_TSYNC\n");
             break;
@@ -155,42 +100,76 @@ extern "C" void app_main()
 	printf("ATAS Node 2\n");
 	
 	atasdisplay = new Atasdisplay();
+	ataslora = new Ataslora();
+	atasgps = new Atasgps();
 	
 	// start, show dashboard
 	atasdisplay->displayDashboard();
 	
-	// testing
-	atasdisplay->displayManualAlarmIsOn();
-	atasdisplay->displayAlarm(avalanche);
-	atasdisplay->displayAlarm(landslide);
-	atasdisplay->displayAlarm(snow);
-	
-	/*
-	// LMIC init
-    printf("OS Init\n");
-	os_init();
-	
-    // Reset the MAC state. Session and pending data transfers will be discarded.
-    printf("Lmic Reset\n");
-	LMIC_reset();
-
-    // Start job (sending automatically starts OTAA too)
-    do_send(&sendjob);
+	// init
+	ataslora->init();
 	
 	while(1){
-		os_runloop_once();
-		delay(2);
-	}*/
-	
-	/* ----- Display -----*/
-	/*
-	initDisplay();
-	display.setTextColor(GxEPD_BLACK);
-	
-	displayDashboard();
-	displayAlarmOn();
-	displayAlarm(1);
-	displayAlarm(2);
-	displayAlarm(3);*/
-}
+			
+		// ***** Button *****
+		// get Button state
+		//buttonPressed =  atasbutton->getState()
+		
+		
+		
+		
+		
+		// ***** Button *****			
+		
 
+		// handle sound
+		/*if(inDangerzone == 0){
+			if(atassound->getState() == true){
+                                atassound->mute();
+    			}
+                }
+                    else if(inDangerzone == 1){
+                            printf("PLAY SOUND\n");
+			//atassound->enable();
+                    }*/
+
+		// **** GPS ***** 				
+		// get gps data, max try -> gpsRetryCount
+		gpsTryCount = 0;
+		while((isnan(gpsLocation[0])) || (isnan(gpsLocation[1])) || (gpsTryCount < gpsRetryCount)){
+			// get GPS Data
+			// 0, latitude | 1, longitude
+			gpsLocation = atasgps->getLocation();
+			gpsTryCount++;
+		}
+		
+		if((isnan(gpsLocation[0])) || (isnan(gpsLocation[1]))){
+			receivedGPSData = false;
+			printf("atasgps: no valid data received yet");
+		}else{
+			printf("atasgps: data received");
+			receivedGPSData = true;
+		}
+			
+		// ***** Lora *****
+		// build string 
+		ostringstream oss;
+
+		// prepare data
+		oss << gpsLocation[0] << "," << gpsLocation[1] << "," << buttonPressed << "," << inDangerzone;			
+		string message = oss.str();
+
+		// set data to be send over lora
+		ataslora->setData(&sendDataJob, message);
+
+		// enable ataslora to send data
+		ataslora->setState(0);
+
+		// run, until the next tx succeds
+		while(ataslora->getState() == 0){
+			os_runloop_once();
+		}
+
+		sleep(txInterval);
+	}
+}

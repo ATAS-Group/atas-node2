@@ -45,6 +45,9 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/esp-idf/components/log/include/esp_log_internal.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/string.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/string.h \
+ /Users/martinschmidli/esp/esp-idf/components/newlib/include/unistd.h \
+ /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/unistd.h \
+ /Users/martinschmidli/esp/esp-idf/components/newlib/include/math.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Arduino.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/inttypes.h \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
@@ -87,7 +90,6 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/semphr.h \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal.h \
- /Users/martinschmidli/esp/esp-idf/components/newlib/include/math.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-log.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-matrix.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-uart.h \
@@ -105,7 +107,6 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/stdlib_noniso.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/binary.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/WCharacter.h \
- /Users/martinschmidli/esp/esp-idf/components/newlib/include/ctype.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/WString.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/pgmspace.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Stream.h \
@@ -136,12 +137,27 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/projects/atas-node2/components/Images/include/images.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/Fonts/include/FreeSans12pt7b.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/Fonts/include/FreeSans9pt7b.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/ataslora/include/ataslora.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/lmic.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/oslmic.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/config.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/hal.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/lorabase.h \
- /Users/martinschmidli/esp/projects/atas-node2/components/hal/include/hal.h
+ /Users/martinschmidli/esp/projects/atas-node2/components/hal/include/hal.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/atasgps/include/atasgps.h \
+ /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/uart.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_struct.h \
+ /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/ringbuf.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_channel.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/minmea/include/minmea.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/atassound/include/atassound.h \
+ /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/ledc.h
 
 /Users/martinschmidli/esp/projects/atas-node2/main/include/main.h:
 
@@ -235,6 +251,12 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/string.h:
 
+/Users/martinschmidli/esp/esp-idf/components/newlib/include/unistd.h:
+
+/Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/unistd.h:
+
+/Users/martinschmidli/esp/esp-idf/components/newlib/include/math.h:
+
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Arduino.h:
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/inttypes.h:
@@ -319,8 +341,6 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal.h:
 
-/Users/martinschmidli/esp/esp-idf/components/newlib/include/math.h:
-
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-log.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-matrix.h:
@@ -354,8 +374,6 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/binary.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/WCharacter.h:
-
-/Users/martinschmidli/esp/esp-idf/components/newlib/include/ctype.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/WString.h:
 
@@ -417,6 +435,8 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 
 /Users/martinschmidli/esp/projects/atas-node2/components/Fonts/include/FreeSans9pt7b.h:
 
+/Users/martinschmidli/esp/projects/atas-node2/components/ataslora/include/ataslora.h:
+
 /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/lmic.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/oslmic.h:
@@ -428,4 +448,32 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 /Users/martinschmidli/esp/projects/atas-node2/components/lmic/include/lorabase.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/hal/include/hal.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/atasgps/include/atasgps.h:
+
+/Users/martinschmidli/esp/esp-idf/components/driver/include/driver/uart.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_struct.h:
+
+/Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_dport_access.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/ringbuf.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_channel.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/minmea/include/minmea.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/atassound/include/atassound.h:
+
+/Users/martinschmidli/esp/esp-idf/components/driver/include/driver/ledc.h:
 /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp:

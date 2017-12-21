@@ -23,7 +23,7 @@ static const int DISPLAY_PIN_RESET = 16; 	// white
 static const int DISPLAY_PIN_BUSY = 4; 		// violett
 
 // State of the Display
-enum Alarm { avalanche, snow, landslide };
+enum Alarm { avalanche=1, snow, landslide };
 
 
 class Atasdisplay{
