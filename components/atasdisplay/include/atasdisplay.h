@@ -9,12 +9,19 @@
 
 #include "images.h"
 
+#include <array>
+#include <string>
+#include <cstring>
+#include <sstream>
+#include <iostream> 
+
 // Font
 #include "FreeSans12pt7b.h"
 #include "FreeSans9pt7b.h"
 
 // Arduino, allowes GxEPD
 #include "Arduino.h"
+
 
 // Pin Definition
 static const int DISPLAY_PIN_CS = 5; 		// orange
@@ -33,9 +40,17 @@ class Atasdisplay{
 		const GFXfont* fontsans12 = &FreeSans12pt7b;
 		GxIO_SPI *io;
 		GxEPD_Class *display;
-		
+		bool hasChanged = false;
+		int updateCounter = 0;
    	public:
+		int getUpdateCounter();
+		bool getHasChanged();
+		void updateDisplay();
 		void displayDashboard();
+		void displayGpsError();
+		void displayLoraStatus(String status);
+		void displayLoraData(int messageTimes[2]);
+		void displayGpsData(double gpsLocation[3]);
 		void displayAlarm(Alarm alarm);
 		void displayManualAlarmIsOn();
 		Atasdisplay();

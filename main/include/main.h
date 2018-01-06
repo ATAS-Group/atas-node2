@@ -33,6 +33,7 @@ using namespace std;
 
 int inDangerzone = 0;
 int txInterval = 20;
+bool manualAlarmActive = false;
 
 // Lora
 Ataslora* ataslora;
@@ -40,7 +41,7 @@ static osjob_t sendDataJob;
 
 // GPS
 Atasgps* atasgps;
-array<double,3>  gpsLocation;
+double* gpsLocation;
 bool receivedGPSData = false;
 
 // Sound
@@ -48,7 +49,6 @@ Atassound* atassound;
 
 // Button Handling
 Atasbutton* atasbutton;
-bool buttonPressed;
 
 // Display
 Atasdisplay* atasdisplay;

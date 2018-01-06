@@ -13,15 +13,21 @@ const lmic_pinmap lmic_pins = {
     .dio = {LORA_PIN_DIO0, LORA_PIN_DIO1, LMIC_UNUSED_PIN},
 };
 
-void Ataslora::setState(int newState){
-    state = newState;
+void Ataslora::setConnectionState(Connectionstate newState){
+    connectionState = newState;
 }
 
-
-int Ataslora::getState(){
-	return state;
+Connectionstate Ataslora::getConnectionState(){
+	return connectionState;
 }
 
+void Ataslora::setSendState(Sendstate newState){
+    sendState = newState;
+}
+
+Sendstate Ataslora::getSendState(){
+	return sendState;
+}
 
 void Ataslora::init(){
 	// LMIC init

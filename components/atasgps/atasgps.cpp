@@ -1,20 +1,4 @@
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_system.h"
-#include "esp_spi_flash.h"
-#include "driver/uart.h"
-#include "soc/uart_struct.h"
-
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-#include "minmea.h"
 #include "atasgps.h"
-
-#define BUF_SIZE 1024
-#define GPS_RX_PIN (26)
-#define GPS_TX_PIN (27)
 
 Atasgps::Atasgps(){
 	
@@ -62,8 +46,10 @@ char * Atasgps::readLine(){
 	} // End of loop
 } // End of readLine
 
-array<double,3> Atasgps::getLocation(){
-    int datareceived = 0;
+double* Atasgps::getLocation(){
+    int datareceived = 0;	
+	double* location = new double[3];
+		
 	while(datareceived == 0){
 		// read line from gps
 		char *line = readLine();
@@ -72,7 +58,9 @@ array<double,3> Atasgps::getLocation(){
 		switch(minmea_sentence_id(line, false)) {
 			case MINMEA_SENTENCE_GGA:
 	    		if (minmea_parse_gga(&frameGga, line)) {
-					location = {minmea_tocoord(&frameGga.latitude), minmea_tocoord(&frameGga.longitude), minmea_tocoord(&frameGga.height)};
+					location[0] = round( minmea_tocoord(&frameGga.latitude) *  decimalPlaces) / decimalPlaces;
+					location[1] = round( minmea_tocoord(&frameGga.longitude) *  decimalPlaces) / decimalPlaces;
+					location[2] = minmea_tocoord(&frameGga.height);
 					// data received
 					datareceived = 1;
 	    		}	

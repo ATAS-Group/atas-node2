@@ -156,6 +156,7 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/ringbuf.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_channel.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/minmea/include/minmea.h \
+ /Users/martinschmidli/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/atassound/include/atassound.h \
  /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/ledc.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/atasbutton/include/atasbutton.h
@@ -473,6 +474,8 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/uart_channel.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/minmea/include/minmea.h:
+
+/Users/martinschmidli/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/atassound/include/atassound.h:
 

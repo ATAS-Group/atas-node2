@@ -6,7 +6,9 @@
 class Atasbutton
 {
     private:
+		bool buttonIsPressed = false;
 	public:
-		Atasbutton(gpio_isr_t buttonCallback);
+		Atasbutton();
 		bool getState();
+		void buttonCallback(void *args);
 };

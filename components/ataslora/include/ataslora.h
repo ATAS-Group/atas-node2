@@ -28,13 +28,18 @@ static const u1_t PROGMEM DEVEUI[8]= { 0x06, 0x58, 0x15, 0xC0, 0x06, 0xDE, 0x29,
 // appkey, big endian
 static const u1_t PROGMEM APPKEY[16] = { 0xE8, 0xAD, 0x93, 0x8D, 0x8F, 0x77, 0x65, 0xBE, 0x11, 0xCF, 0x87, 0xEE, 0x03, 0xC8, 0x7F, 0xA5 };
 
+enum Connectionstate {joined,joining,failed,start};
+enum Sendstate {send,nosend};
+
 class Ataslora{
 	private:
-	// 0; ok; 1; error
-	int state = 0;
+	Connectionstate connectionState = start;
+	Sendstate sendState = send;
     public:
-	void setState(int state);
-	int getState();
+	void setConnectionState(Connectionstate state);
+	Connectionstate getConnectionState();
+	void setSendState(Sendstate state);
+	Sendstate getSendState();
 	void setData(osjob_t* job, std::string message);
 	void init();
 };

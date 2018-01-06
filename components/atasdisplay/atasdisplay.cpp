@@ -1,32 +1,116 @@
 #include "atasdisplay.h"
 
+
 Atasdisplay::Atasdisplay(void) {
 	io = new GxIO_SPI(SPI, DISPLAY_PIN_CS, DISPLAY_PIN_DC, DISPLAY_PIN_RESET);
 	display =  new GxEPD_Class(*io, DISPLAY_PIN_RESET, DISPLAY_PIN_BUSY);
 	display->init();
+	display->setRotation(2);
 	display->setTextColor(GxEPD_BLACK);
+	displayDashboard();
 }
+
+void Atasdisplay::displayGpsData(double gpsLocation[3]){	
+	if(state == dashboard){		
+		// prepare
+		// latitude
+		std::ostringstream latStream;
+		latStream.precision(5);
+		latStream << std::fixed << "Lat: " << gpsLocation[0];
+		std::string latString = latStream.str();
+		char *lat = new char[latString.length() + 1]; 
+		std::strcpy(lat, latString.c_str());
+		
+		// longitude
+		std::ostringstream lngStream;
+		lngStream.precision(5);
+		lngStream << std::fixed << "Lng: " << gpsLocation[1];
+		std::string lngString = lngStream.str();
+		char *lng = new char[lngString.length() + 1]; 
+		std::strcpy(lng, lngString.c_str());
+		
+		// height
+		std::ostringstream heightStream;
+		heightStream.precision(0);
+		heightStream << "Alt: " << gpsLocation[2];
+		std::string heightString = heightStream.str();
+		char *height = new char[heightString.length() + 1]; 
+		std::strcpy(height, heightString.c_str());
+		
+		// show
+		display->fillRect(60, 0, 140, 99, GxEPD_WHITE);
+		display->setCursor(60, 30);
+		display->println(lat);
+		display->setCursor(60, 50);
+		display->println(lng);
+		display->setCursor(60, 70);
+		display->println(height);
+		hasChanged = true;
+	}
+}
+
+bool Atasdisplay::getHasChanged(){
+	return hasChanged;
+}
+
+void Atasdisplay::displayGpsError(){
+	if(state == dashboard){
+		printf("show gps error\n");
+		display->fillRect(60, 20, 140, 50, GxEPD_WHITE);
+		display->setCursor(60, 55);
+		display->println("No Data yet");
+		hasChanged = true;
+	}
+}
+
+void Atasdisplay::displayLoraStatus(String status){
+	printf("lorastate\n");
+	if(state == dashboard){
+		display->fillRect(60, 101, 140, 99, GxEPD_WHITE);
+		display->setCursor(60, 155);
+		display->println(status);
+		hasChanged = true;
+	}
+}
+
+void Atasdisplay::displayLoraData(int messageTimes[2]){
+	
+}
+
+int Atasdisplay::getUpdateCounter(){
+	return updateCounter;
+}
+
+void Atasdisplay::updateDisplay(){
+	if(hasChanged == true){
+		display->update();
+		hasChanged = false;
+		updateCounter++;
+	}
+}
+
 
 
 void Atasdisplay::displayDashboard(){
+	printf("display dashboard\n");
 	if(state != dashboard){
 		display->setFont(fontsans9);	
 		display->fillScreen(GxEPD_WHITE);
-		display->drawBitmap(img_location, 10, 10, 40, 40, GxEPD_BLACK);
-		display->setCursor(60, 20);
-		display->println("Lat: 46.212134");
-		display->setCursor(60, 45);
-		display->println("Lng: 7.8932157");
-		display->drawLine(0,80,200,80,GxEPD_BLACK);
-		display->drawBitmap(img_updownload, 10, 100, 40, 40, GxEPD_BLACK);
-		display->setCursor(60, 110);
-		display->println("01.12.17 15:20");
-		display->setCursor(60, 135);
-		display->println("01.12.17 15:31");
-		display->update();
+		display->drawBitmap(img_location, 10, 30, 40, 40, GxEPD_BLACK);
+		display->drawLine(0,100,200,100,GxEPD_BLACK);
+		display->drawBitmap(img_updownload, 10, 130, 40, 40, GxEPD_BLACK);
+		// gps 
+		display->setCursor(60, 55);
+		display->println("No Data yet");
+		// lora
+		display->setCursor(60, 155);
+		display->println("Idle");
+		
+		hasChanged = true;
 		state = dashboard;
 	}
 }
+
 
 void Atasdisplay::displayManualAlarmIsOn(){	
 	if(state != manualalarm){
@@ -35,8 +119,8 @@ void Atasdisplay::displayManualAlarmIsOn(){
 		display->fillScreen(GxEPD_WHITE);
 		display->println("Alarm ON");
 		display->drawBitmap(img_alarmbell, 36, 16, 128, 128, GxEPD_BLACK);
-		display->update();
 		state = manualalarm;
+		hasChanged = true;
 	}
 }
 
@@ -68,7 +152,7 @@ void Atasdisplay::displayAlarm(Alarm alarm){
 				printf("displayAlarm: error, no alarm defined");
 				break;
 		}
-		display->update();
+		hasChanged = true;
 		state = indangerzone;
 	}
 }
