@@ -159,7 +159,7 @@ void buttonIntTask(void *pvParameters)
 				if(manualAlarmActive == true){
 					atasdisplay->displayManualAlarmIsOn();
 				}else{
-					// 
+					atasdisplay->displayDashboard();
 				}	
 			}	
 			last = button_ts;	
