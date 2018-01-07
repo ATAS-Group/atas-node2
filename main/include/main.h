@@ -57,7 +57,7 @@ bool manualAlarmActive = false;
 static QueueHandle_t tsqueue;
 Atasbutton* atasbutton;
 // in seconds
-int alarmTriggerTime = 2;
+int alarmTriggerTime = 1;
 
 // Display
 Atasdisplay* atasdisplay;

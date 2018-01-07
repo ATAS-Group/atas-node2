@@ -125,20 +125,12 @@ void gpsHandler(void * parameter){
 	}
 }
 
-
-void buttonHandler(){
-	int buttonIsPressedCounter = 0;
-	
-	while(1){
-		
-		vTaskDelay(100 / portTICK_RATE_MS);
-	}
-}
-
 void buttonIntTask(void *pvParameters)
 {
     printf("Waiting for button press interrupt on gpio...\r\n");
     QueueHandle_t *tsqueue = (QueueHandle_t *)pvParameters;
+	int buttonPressedTime = 0;
+	int buttonReleasedTime = 0;
 	
     uint32_t last = 0;
     while(1) {
@@ -146,20 +138,31 @@ void buttonIntTask(void *pvParameters)
         xQueueReceive(*tsqueue, &button_ts, portMAX_DELAY);
         button_ts *= portTICK_PERIOD_MS;
 		
-		// reduce "prellen"
-        if(last < button_ts-200) {
-			printf("Button interrupt last fired at %dms\r\n", last);
-            printf("Button interrupt fired at %dms\r\n", button_ts);
-			// presse for long enouth
-			if(button_ts - last > (alarmTriggerTime * 1000)){
-				printf("atasbutton: toggle Alamr\n");
+		// reduce bouncing
+        if(last < button_ts - 200) {
+			int level = gpio_get_level(GPIO_NUM_15);
+			
+			// Button down
+			if(level == 1){
+				printf("Buttonpressed\n");
+				buttonPressedTime = button_ts;
+			}
+			// Button release
+			else{
+				printf("Button released\n");
+				buttonReleasedTime = button_ts;
 				
-				manualAlarmActive = !manualAlarmActive;
+				// When Button was realesed, check the time the button was pressed
+				if(buttonReleasedTime - buttonPressedTime > (alarmTriggerTime * 1000)){	
+					manualAlarmActive = !manualAlarmActive;
 				
-				if(manualAlarmActive == true){
-					atasdisplay->displayManualAlarmIsOn();
-				}else{
-					atasdisplay->displayDashboard();
+					if(manualAlarmActive == true){
+						printf("atasbutton: enable Alarm\n");
+						atasdisplay->displayManualAlarmIsOn();
+					}else{
+						printf("atasbutton: disable Alarm\n");
+						atasdisplay->displayDashboard();
+					}	
 				}	
 			}	
 			last = button_ts;	
