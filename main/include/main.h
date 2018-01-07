@@ -1,10 +1,10 @@
 using namespace std;
 
+#include "esp_system.h"
+#include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <freertos/task.h>
-#include "esp_system.h"
-#include <esp_log.h>
 
 #include <driver/gpio.h>
 #include <stdio.h>
@@ -32,15 +32,13 @@ using namespace std;
 #include "atassound.h"
 #include "atasbutton.h"
 
-TaskHandle_t TaskHandle_GPS;
-TaskHandle_t TaskHandle_Alarm;
-TaskHandle_t TaskHandle_Display;
-
-
+TaskHandle_t xDisplayHandler;
+TaskHandle_t xGPSHandler;
+TaskHandle_t xAlarmHandler;
+ 
 int inDangerzone = 0;
 // in seconds
 int txInterval = 20;
-bool manualAlarmActive = false;
 
 // Lora
 Ataslora* ataslora;
@@ -55,7 +53,11 @@ bool receivedGPSData = false;
 Atassound* atassound;
 
 // Button Handling
+bool manualAlarmActive = false;
+static QueueHandle_t tsqueue;
 Atasbutton* atasbutton;
+// in seconds
+int alarmTriggerTime = 3;
 
 // Display
 Atasdisplay* atasdisplay;

@@ -41,9 +41,7 @@ class Atasdisplay{
 		GxIO_SPI *io;
 		GxEPD_Class *display;
 		bool hasChanged = false;
-		int updateCounter = 0;
    	public:
-		int getUpdateCounter();
 		bool getHasChanged();
 		void updateDisplay();
 		void displayDashboard();

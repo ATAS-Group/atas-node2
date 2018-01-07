@@ -75,15 +75,11 @@ void Atasdisplay::displayLoraData(int messageTimes[2]){
 	
 }
 
-int Atasdisplay::getUpdateCounter(){
-	return updateCounter;
-}
 
 void Atasdisplay::updateDisplay(){
 	if(hasChanged == true){
 		display->update();
 		hasChanged = false;
-		updateCounter++;
 	}
 }
 

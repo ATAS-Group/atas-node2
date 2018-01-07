@@ -8,7 +8,7 @@ class Atasbutton
     private:
 		bool buttonIsPressed = false;
 	public:
-		Atasbutton();
+		Atasbutton(gpio_isr_t buttonCallback);
 		bool getState();
 		void buttonCallback(void *args);
 };
