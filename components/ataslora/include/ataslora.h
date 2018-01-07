@@ -1,8 +1,11 @@
 // LMIC
 #include <lmic.h>
 #include <hal.h>
+#include <SPI.h>
 #include <string>
 #include <stdio.h>
+
+#include <driver/gpio.h>
 
 // memcpy_P function
 #include <pgmspace.h>
@@ -18,6 +21,7 @@ static const int LORA_PIN_RESET = 16;
 //static const int PIN_BUSY = 4; 		
 static const int LORA_PIN_DIO0 = 32;
 static const int LORA_PIN_DIO1 = 33;
+
 
 // app eui, ittle-endian format
 static const u1_t PROGMEM APPEUI[8]={ 0x4A, 0x40, 0x00, 0xF0, 0x7E, 0xD5, 0xB3, 0x70 };

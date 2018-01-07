@@ -50,17 +50,19 @@ double* Atasgps::getLocation(){
     int datareceived = 0;	
 	double* location = new double[3];
 		
+	// read until MINMEA_SENTENCE_GGA
 	while(datareceived == 0){
 		// read line from gps
-		char *line = readLine();
-		
+		char *line = readLine();		
 		struct minmea_sentence_gga frameGga;
+		
 		switch(minmea_sentence_id(line, false)) {
 			case MINMEA_SENTENCE_GGA:
 	    		if (minmea_parse_gga(&frameGga, line)) {
 					location[0] = round( minmea_tocoord(&frameGga.latitude) *  decimalPlaces) / decimalPlaces;
 					location[1] = round( minmea_tocoord(&frameGga.longitude) *  decimalPlaces) / decimalPlaces;
-					location[2] = minmea_tocoord(&frameGga.height);
+					location[2] = minmea_tofloat(&frameGga.altitude);
+				
 					// data received
 					datareceived = 1;
 	    		}	

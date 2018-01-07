@@ -29,22 +29,21 @@ void Atasdisplay::displayGpsData(double gpsLocation[3]){
 		char *lng = new char[lngString.length() + 1]; 
 		std::strcpy(lng, lngString.c_str());
 		
-		// height
-		std::ostringstream heightStream;
-		heightStream.precision(0);
-		heightStream << "Alt: " << gpsLocation[2];
-		std::string heightString = heightStream.str();
-		char *height = new char[heightString.length() + 1]; 
-		std::strcpy(height, heightString.c_str());
+		// altitude
+		std::ostringstream altitudeStream;
+		altitudeStream << "Alt: " << int(gpsLocation[2]) << "m";
+		std::string altitudeString = altitudeStream.str();
+		char *alt = new char[altitudeString.length() + 1]; 
+		std::strcpy(alt, altitudeString.c_str());
 		
 		// show
 		display->fillRect(60, 0, 140, 99, GxEPD_WHITE);
-		display->setCursor(60, 30);
+		display->setCursor(60, 35);
 		display->println(lat);
-		display->setCursor(60, 50);
+		display->setCursor(60, 55);
 		display->println(lng);
-		display->setCursor(60, 70);
-		display->println(height);
+		display->setCursor(60, 75);
+		display->println(alt);
 		hasChanged = true;
 	}
 }
@@ -64,7 +63,6 @@ void Atasdisplay::displayGpsError(){
 }
 
 void Atasdisplay::displayLoraStatus(String status){
-	printf("lorastate\n");
 	if(state == dashboard){
 		display->fillRect(60, 101, 140, 99, GxEPD_WHITE);
 		display->setCursor(60, 155);
@@ -92,7 +90,6 @@ void Atasdisplay::updateDisplay(){
 
 
 void Atasdisplay::displayDashboard(){
-	printf("display dashboard\n");
 	if(state != dashboard){
 		display->setFont(fontsans9);	
 		display->fillScreen(GxEPD_WHITE);
