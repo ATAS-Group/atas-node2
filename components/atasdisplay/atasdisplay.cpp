@@ -3,7 +3,7 @@
 
 Atasdisplay::Atasdisplay(void) {
 	io = new GxIO_SPI(SPI, DISPLAY_PIN_CS, DISPLAY_PIN_DC, DISPLAY_PIN_RESET);
-	display =  new GxEPD_Class(*io, DISPLAY_PIN_RESET, DISPLAY_PIN_BUSY);
+	display = new GxEPD_Class(*io, DISPLAY_PIN_RESET, DISPLAY_PIN_BUSY);
 	display->init();
 	display->setRotation(2);
 	display->setTextColor(GxEPD_BLACK);
@@ -64,6 +64,7 @@ void Atasdisplay::displayGpsError(){
 
 void Atasdisplay::displayLoraStatus(String status){
 	if(state == dashboard){
+		printf("atasdisplay: print status\n");
 		display->fillRect(60, 101, 140, 99, GxEPD_WHITE);
 		display->setCursor(60, 155);
 		display->println(status);
@@ -71,7 +72,7 @@ void Atasdisplay::displayLoraStatus(String status){
 	}
 }
 
-void Atasdisplay::displayLoraData(int messageTimes[2]){
+void Atasdisplay::displayLoraData(int time){
 	
 }
 
@@ -86,7 +87,9 @@ void Atasdisplay::updateDisplay(){
 
 
 void Atasdisplay::displayDashboard(){
+	printf("atasdisplay: displayDashboard 1\n");
 	if(state != dashboard){
+		printf("atasdisplay: displayDashboard 2\n");
 		display->setFont(fontsans9);	
 		display->fillScreen(GxEPD_WHITE);
 		display->drawBitmap(img_location, 10, 30, 40, 40, GxEPD_BLACK);
@@ -94,10 +97,10 @@ void Atasdisplay::displayDashboard(){
 		display->drawBitmap(img_updownload, 10, 130, 40, 40, GxEPD_BLACK);
 		// gps 
 		display->setCursor(60, 55);
-		display->println("No Data yet");
+		display->println("No Data");
 		// lora
 		display->setCursor(60, 155);
-		display->println("Idle");
+		display->println("Not Connected");
 		
 		hasChanged = true;
 		state = dashboard;
@@ -118,18 +121,17 @@ void Atasdisplay::displayManualAlarmIsOn(){
 }
 
 void Atasdisplay::displayAlarm(Alarm alarm){
-	if(state != indangerzone){
+	if(alarm != activeAlarm){
 		display->setFont(fontsans12);
 		display->setCursor(48, 175);
 		display->fillScreen(GxEPD_WHITE);
-	
 		switch(alarm) {
 		    case avalanche : 
 				display->drawBitmap(img_avalanche, 36, 16, 128, 128, GxEPD_BLACK);
 				display->println("Avalanche");
 				printf("Triggered Alarm: Avalanche\n");
 				break;
-		    case landslide : 
+		    case landslide :
 				display->drawBitmap(img_landslide, 36, 16, 128, 128, GxEPD_BLACK);
 				display->println("Landslide");
 				printf("Triggered Alarm: Landslide\n");
@@ -145,7 +147,8 @@ void Atasdisplay::displayAlarm(Alarm alarm){
 				printf("displayAlarm: error, no alarm defined");
 				break;
 		}
+		activeAlarm = alarm;
 		hasChanged = true;
 		state = indangerzone;
-	}
+}
 }

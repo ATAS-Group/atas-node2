@@ -22,6 +22,7 @@ void onEvent (ev_t ev) {
 			atasdisplay->displayLoraStatus("Joining");
             break;
         case EV_JOINED:
+			printf("EV_JOINED\n");
             printf("ataslora: joined\n");
 			
 			atasdisplay->displayLoraStatus("Joined");	
@@ -64,6 +65,7 @@ void onEvent (ev_t ev) {
 				printf("ataslora: received data: %d\n", payload);
 				inDangerzone = payload;
 			}
+			//atasdisplay->displayLoraData();
 			// run os_runloop , 2s longer.
 			delay(2000);
 			// stop lora sending
@@ -106,13 +108,17 @@ void gpsHandler(void * parameter){
 	
 		if(isnan(gpsLocationTemp[0]) || isnan(gpsLocationTemp[1])){
 			printf("atasgps: no valid data received yet, retry in 5s\n");
-			if(showError == false){
+			if((showError == false) && (isnan(gpsLocation[0]) || isnan(gpsLocation[1]))){
+				// display error only once
 				atasdisplay->displayGpsError();
 			};
 			showError = true;
 			vTaskDelay(10000 / portTICK_RATE_MS);		
 		}else{
 			// only update data if new data arrived
+			
+			// TODO
+			
 			gpsLocation[0] = gpsLocationTemp[0];
 			gpsLocation[1] = gpsLocationTemp[1];
 			gpsLocation[2] = gpsLocationTemp[2];
@@ -153,16 +159,8 @@ void buttonIntTask(void *pvParameters)
 				buttonReleasedTime = button_ts;
 				
 				// When Button was realesed, check the time the button was pressed
-				if(buttonReleasedTime - buttonPressedTime > (alarmTriggerTime * 1000)){	
+				if(buttonReleasedTime - buttonPressedTime > alarmTriggerTime){	
 					manualAlarmActive = !manualAlarmActive;
-				
-					if(manualAlarmActive == true){
-						printf("atasbutton: enable Alarm\n");
-						atasdisplay->displayManualAlarmIsOn();
-					}else{
-						printf("atasbutton: disable Alarm\n");
-						atasdisplay->displayDashboard();
-					}	
 				}	
 			}	
 			last = button_ts;	
@@ -173,28 +171,32 @@ void buttonIntTask(void *pvParameters)
 
 void alarmHandler(void * parameter){
 	while(1){
-		// in Danger
-		printf("inDangerzone: %i\n",inDangerzone);
-	
-		if(inDangerzone > 0 && manualAlarmActive == false){
+		if(inDangerzone > 0){
+			printf("alarmHandler: inDangerzone: %i\n",inDangerzone);
 			// show danger
 			atasdisplay->displayAlarm(static_cast<Alarm>(inDangerzone));
 			// play sound
 			if(atassound->getState() == false){
-				printf("Atassounf: enable sound\n");
+				printf("Atassound: enable sound\n");
 				//atassound->enable();
 			}
 		} 
+		// Manual Alarm on
+		else if(manualAlarmActive == true){
+			printf("alarmHandler: Manual Alarm On\n");
+			atasdisplay->displayManualAlarmIsOn();
+		}
 		// no Danger
 		else {
+			printf("alarmHandler: no Alarm\n");
 			atasdisplay->displayDashboard();
 			// mute soundalarm
 			if(atassound->getState() == true){
 				atassound->mute();
 			}
 		}	
-		vTaskDelay(2000 / portTICK_RATE_MS);
-	}	
+		vTaskDelay(1000 / portTICK_RATE_MS);
+	}
 }
 
 void loraHandler(void * parameter){
@@ -214,22 +216,23 @@ void loraHandler(void * parameter){
 		// enable ataslora to send data
 		ataslora->setSendState(send);
 	
-		// Disable Activities
-		vTaskSuspend( xDisplayHandler );
-		vTaskSuspend( xGPSHandler );
-		vTaskSuspend( xAlarmHandler );
-	
-		// run, until the next tx succeds
-		while(ataslora->getSendState() == send){
-			os_runloop_once();
-			delay(1);
-		}	
+		printf("ataslora: get ready to send \n");
 		
-		vTaskResume( xDisplayHandler );
-		vTaskResume( xGPSHandler );
-		vTaskResume( xAlarmHandler );
+		// wait for next send
+		delay(txInterval * 1000);
 		
-		vTaskDelay(txInterval * 1000 / portTICK_RATE_MS);
+		// get semaphore
+		if(xSemaphoreTake( xSPISemaphore, portMAX_DELAY ) == pdTRUE){						
+			//printf("ataslora: took semaphore\n");
+			
+			// run, until the next tx succeds
+			while(ataslora->getSendState() == send){
+				os_runloop_once();
+				delay(1);
+			}	
+			xSemaphoreGive(xSPISemaphore);
+		}
+		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
 }
 
@@ -242,10 +245,17 @@ void displayHandler(void * parameter){
 	while(1){
 		// check if we need to redraw the display	
 		if(atasdisplay->getHasChanged()==true){
-			// redraw
-			atasdisplay->updateDisplay();
+			
+			if(xSemaphoreTake( xSPISemaphore, portMAX_DELAY) == pdTRUE){
+				// redraw
+				//printf("atasdisplay: semaphore taken\n");
+				atasdisplay->updateDisplay();
+				// make sure picture is all drawn
+				delay(3000);
+				xSemaphoreGive(xSPISemaphore);
+			}
 		}
-		vTaskDelay(2000 / portTICK_RATE_MS);
+		vTaskDelay(500 / portTICK_RATE_MS);
 	}
 }
 
@@ -264,14 +274,21 @@ extern "C" void app_main()
 	atasbutton = new Atasbutton(&buttonCallback);
 	atassound = new Atassound();
 	
-	// Tasks
-	tsqueue = xQueueCreate(2, sizeof(uint32_t));
-	xTaskCreate(&displayHandler,"displayHandler",10000,NULL,1,&xDisplayHandler);
-	xTaskCreate(&buttonIntTask, "buttonIntTask", 10000, &tsqueue, 2, NULL);
-	xTaskCreate(&gpsHandler,"gpsHandler",10000,NULL,1,&xGPSHandler);
-	xTaskCreate(&alarmHandler,"alarmHandler",10000,NULL,1,&xAlarmHandler);
+	// Semaphore
+	xSPISemaphore = xSemaphoreCreateMutex(); 
 	
-	// wait a bit until start lora communication
-	delay(8000);
-	xTaskCreate(&loraHandler,"loraHandler",10000,NULL,2000,NULL);			
+	if( xSPISemaphore != NULL)
+	{
+		// Tasks
+		tsqueue = xQueueCreate(2, sizeof(uint32_t));
+	
+		xTaskCreate(&displayHandler,"displayHandler",10000,NULL,1,&xDisplayHandler);	
+		xTaskCreate(&buttonIntTask, "buttonIntTask", 10000, &tsqueue, 1, NULL);
+		xTaskCreate(&gpsHandler,"gpsHandler",10000,NULL,1,&xGPSHandler);
+		xTaskCreate(&alarmHandler,"alarmHandler",10000,NULL,1,&xAlarmHandler);
+		xTaskCreate(&loraHandler,"loraHandler",10000,NULL,1,&xLoraHandler);
+		vTaskStartScheduler();		
+	 }else{
+		 printf("semaphore creation failed\n");
+	 }	
 }

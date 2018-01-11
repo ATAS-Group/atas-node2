@@ -41,13 +41,14 @@ class Atasdisplay{
 		GxIO_SPI *io;
 		GxEPD_Class *display;
 		bool hasChanged = false;
+		Alarm activeAlarm;
    	public:
 		bool getHasChanged();
 		void updateDisplay();
 		void displayDashboard();
 		void displayGpsError();
 		void displayLoraStatus(String status);
-		void displayLoraData(int messageTimes[2]);
+		void displayLoraData(int time);
 		void displayGpsData(double gpsLocation[3]);
 		void displayAlarm(Alarm alarm);
 		void displayManualAlarmIsOn();

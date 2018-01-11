@@ -81,6 +81,8 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/task.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/limits.h \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/list.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/semphr.H \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/string.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/string.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/unistd.h \
@@ -89,7 +91,6 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Arduino.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/inttypes.h \
  /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/semphr.h \
- /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-log.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal-matrix.h \
@@ -325,6 +326,10 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 
 /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/list.h:
 
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/semphr.H:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h:
+
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/string.h:
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/string.h:
@@ -340,8 +345,6 @@ main.o: /Users/martinschmidli/esp/projects/atas-node2/main/./main.cpp \
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/inttypes.h:
 
 /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/semphr.h:
-
-/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/queue.h:
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/esp32-hal.h:
 

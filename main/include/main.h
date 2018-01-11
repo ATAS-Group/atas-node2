@@ -5,6 +5,7 @@ using namespace std;
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <freertos/task.h>
+#include <freertos/semphr.H>
 
 #include <driver/gpio.h>
 #include <stdio.h>
@@ -35,6 +36,9 @@ using namespace std;
 TaskHandle_t xDisplayHandler;
 TaskHandle_t xGPSHandler;
 TaskHandle_t xAlarmHandler;
+TaskHandle_t xLoraHandler;
+
+SemaphoreHandle_t xSPISemaphore = NULL;
  
 int inDangerzone = 0;
 // in seconds
@@ -57,7 +61,7 @@ bool manualAlarmActive = false;
 static QueueHandle_t tsqueue;
 Atasbutton* atasbutton;
 // in seconds
-int alarmTriggerTime = 1;
+int alarmTriggerTime = 300;
 
 // Display
 Atasdisplay* atasdisplay;
