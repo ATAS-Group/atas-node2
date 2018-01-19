@@ -19,13 +19,11 @@ void onEvent (ev_t ev) {
         case EV_JOINING:
             printf("EV_JOINING\n");
 			ataslora->setConnectionState(joining);	
-			atasdisplay->displayLoraStatus("Joining");
             break;
         case EV_JOINED:
 			printf("EV_JOINED\n");
             printf("ataslora: joined\n");
-			
-			atasdisplay->displayLoraStatus("Joined");	
+				
 			ataslora->setConnectionState(joined);	
             // Disable link check validation (automatically enabled
             // during join, but not supported by TTN at this time).
@@ -35,7 +33,7 @@ void onEvent (ev_t ev) {
 			LMIC.dn2Dr = DR_SF9;
 			
 			// Set Spreading Factor
-			LMIC_setDrTxpow(DR_SF7, 14);
+			LMIC_setDrTxpow(DR_SF9, 14);
 			
             break;
         case EV_RFU1:
@@ -43,13 +41,11 @@ void onEvent (ev_t ev) {
             break;
         case EV_JOIN_FAILED:
             printf("EV_JOIN_FAILED\n");
-			ataslora->setConnectionState(failed);	
-			atasdisplay->displayLoraStatus("Join Failed");	
+			ataslora->setConnectionState(failed);		
             break;
         case EV_REJOIN_FAILED:
             printf("EV_REJOIN_FAILED\n");
 			ataslora->setConnectionState(failed);	
-			atasdisplay->displayLoraStatus("Rejoin Failed");	
             break;
         case EV_TXCOMPLETE:
 			printf("ataslora: tx complete\n");
@@ -116,7 +112,6 @@ void gpsHandler(void * parameter){
 			vTaskDelay(10000 / portTICK_RATE_MS);		
 		}else{
 			// only update data if new data arrived
-			
 			// TODO
 			
 			gpsLocation[0] = gpsLocationTemp[0];
@@ -171,29 +166,47 @@ void buttonIntTask(void *pvParameters)
 
 void alarmHandler(void * parameter){
 	while(1){
-		if(inDangerzone > 0){
+		// Manual Alarm on
+		if(manualAlarmActive == true){
+			printf("alarmHandler: Manual Alarm On\n");
+			atasdisplay->displayManualAlarmIsOn();
+			// mute soundalarm
+			atassound->mute();
+		}
+		else if(inDangerzone > 0){
 			printf("alarmHandler: inDangerzone: %i\n",inDangerzone);
 			// show danger
 			atasdisplay->displayAlarm(static_cast<Alarm>(inDangerzone));
 			// play sound
-			if(atassound->getState() == false){
-				printf("Atassound: enable sound\n");
-				//atassound->enable();
-			}
+			printf("Atassound: enable sound\n");
+			//atassound->enable();
 		} 
-		// Manual Alarm on
-		else if(manualAlarmActive == true){
-			printf("alarmHandler: Manual Alarm On\n");
-			atasdisplay->displayManualAlarmIsOn();
-		}
 		// no Danger
 		else {
 			printf("alarmHandler: no Alarm\n");
-			atasdisplay->displayDashboard();
+			
 			// mute soundalarm
-			if(atassound->getState() == true){
-				atassound->mute();
-			}
+			atassound->mute();
+			
+			// show dashboard
+			atasdisplay->displayDashboard();
+			
+			// show text on display
+			Connectionstate conState = ataslora->getConnectionState();
+			switch(conState){
+		        case joined:
+		            atasdisplay->displayLoraStatus("Joined");	
+		            break;
+				case failed:
+					atasdisplay->displayLoraStatus("Failed");
+					break;
+				case joining:
+					atasdisplay->displayLoraStatus("Joining");
+					break;	
+				default:
+					atasdisplay->displayLoraStatus("Not Connected");
+					break;
+			}				
 		}	
 		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
@@ -219,13 +232,11 @@ void loraHandler(void * parameter){
 		printf("ataslora: get ready to send \n");
 		
 		// wait for next send
-		delay(txInterval * 1000);
+		delay(1000);
 		
 		// get semaphore
 		if(xSemaphoreTake( xSPISemaphore, portMAX_DELAY ) == pdTRUE){						
-			//printf("ataslora: took semaphore\n");
-			
-			// run, until the next tx succeds
+			// run, until the next tx succeeds
 			while(ataslora->getSendState() == send){
 				os_runloop_once();
 				delay(1);

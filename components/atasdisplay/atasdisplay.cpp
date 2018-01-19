@@ -87,9 +87,8 @@ void Atasdisplay::updateDisplay(){
 
 
 void Atasdisplay::displayDashboard(){
-	printf("atasdisplay: displayDashboard 1\n");
+	printf("atasdisplay: displayDashboard\n");
 	if(state != dashboard){
-		printf("atasdisplay: displayDashboard 2\n");
 		display->setFont(fontsans9);	
 		display->fillScreen(GxEPD_WHITE);
 		display->drawBitmap(img_location, 10, 30, 40, 40, GxEPD_BLACK);
@@ -150,5 +149,5 @@ void Atasdisplay::displayAlarm(Alarm alarm){
 		activeAlarm = alarm;
 		hasChanged = true;
 		state = indangerzone;
-}
+	}
 }
