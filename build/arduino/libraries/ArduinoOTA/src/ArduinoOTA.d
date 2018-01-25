@@ -155,7 +155,8 @@ libraries/ArduinoOTA/src//ArduinoOTA.o: \
  /Users/martinschmidli/esp/esp-idf/components/spi_flash/include/esp_partition.h \
  /Users/martinschmidli/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/ESPmDNS/src/ESPmDNS.h \
- /Users/martinschmidli/esp/esp-idf/components/mdns/include/mdns.h
+ /Users/martinschmidli/esp/esp-idf/components/mdns/include/mdns.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiUdp.h:
 
@@ -468,4 +469,6 @@ libraries/ArduinoOTA/src//ArduinoOTA.o: \
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/ESPmDNS/src/ESPmDNS.h:
 
 /Users/martinschmidli/esp/esp-idf/components/mdns/include/mdns.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h:
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/ArduinoOTA/src//ArduinoOTA.cpp:

@@ -27,7 +27,7 @@ Archive member included to satisfy reference by file (symbol)
 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
                               /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o) (__bswapsi2)
 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
-                              /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o) (__udivdi3)
+                              /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o) (__udivdi3)
 
 Allocating common symbols
 Common symbol       size              file
@@ -395,7 +395,7 @@ END GROUP
                 0x000000003fff15e8                . = ALIGN (0x4)
                 0x000000003fff15e8                _heap_start = ABSOLUTE (.)
 
-.iram.text      0x0000000040078000     0x3593
+.iram.text      0x0000000040078000     0x35a7
                 0x0000000040078000                _stext = .
                 0x0000000040078000                _text_start = ABSOLUTE (.)
  *(.literal .text .literal.* .text.* .stub .gnu.warning .gnu.linkonce.literal.* .gnu.linkonce.t.*.literal .gnu.linkonce.t.*)
@@ -555,428 +555,428 @@ END GROUP
                 0x0000000040078450        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0x4 (size before relaxing)
  .literal.rtc_clk_xtal_freq_estimate
-                0x0000000040078450       0x14 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                         0x3c (size before relaxing)
+                0x0000000040078450       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                                         0x4c (size before relaxing)
  .literal.rtc_clk_slow_freq_set
-                0x0000000040078464        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078470        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0xc (size before relaxing)
  .literal.rtc_clk_slow_freq_get
-                0x0000000040078464        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078470        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0x4 (size before relaxing)
  .literal.rtc_clk_fast_freq_set
-                0x0000000040078464        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078470        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0xc (size before relaxing)
  .literal.rtc_clk_fast_freq_get
-                0x0000000040078464        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078470        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0x4 (size before relaxing)
  .literal.rtc_clk_bbpll_set
-                0x0000000040078464       0x10 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078470       0x10 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x38 (size before relaxing)
  .literal.rtc_clk_xtal_freq_get
-                0x0000000040078474        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078480        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x1c (size before relaxing)
  .literal.rtc_clk_cpu_freq_get
-                0x000000004007847c       0x14 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x0000000040078488       0x14 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x28 (size before relaxing)
  .literal.rtc_clk_cpu_freq_value
-                0x0000000040078490       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007849c       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x2c (size before relaxing)
  .literal.rtc_clk_xtal_freq_update
-                0x00000000400784b0        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400784bc        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0x8 (size before relaxing)
  .literal.rtc_clk_apb_freq_update
-                0x00000000400784b0        0x4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400784bc        0x4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                           0x8 (size before relaxing)
  .literal.rtc_clk_cpu_freq_set
-                0x00000000400784b4       0x1c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400784c0       0x1c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x78 (size before relaxing)
  .literal.rtc_clk_apb_freq_get
-                0x00000000400784d0        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400784dc        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x14 (size before relaxing)
  .literal.rtc_clk_init
-                0x00000000400784d8       0x24 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x00000000400784e4       0x24 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x94 (size before relaxing)
  .literal.rtc_vddsdio_get_config
-                0x00000000400784fc       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
+                0x0000000040078508       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
                                          0x2c (size before relaxing)
  .literal.rtc_vddsdio_set_config
-                0x000000004007851c        0x4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
+                0x0000000040078528        0x4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
                                           0x8 (size before relaxing)
  .literal.rtc_clk_cal_internal
-                0x0000000040078520       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000004007852c       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
                                          0x3c (size before relaxing)
  .literal.rtc_clk_cal_ratio
-                0x0000000040078540        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000004007854c        0x0 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
                                           0x8 (size before relaxing)
  .literal.rtc_clk_wait_for_slow_cycle
-                0x0000000040078540        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000004007854c        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
                                          0x20 (size before relaxing)
- .literal       0x0000000040078548        0x8 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+ .literal       0x0000000040078554        0x8 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
  .iram1.literal
-                0x0000000040078550       0x30 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x000000004007855c       0x30 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x60 (size before relaxing)
  .text.wdt_reset_cpu0_info_enable
-                0x0000000040078580       0x27 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
- *fill*         0x00000000400785a7        0x1 
+                0x000000004007858c       0x27 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+ *fill*         0x00000000400785b3        0x1 
  .text.wdt_reset_info_dump
-                0x00000000400785a8       0xe6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
- *fill*         0x000000004007868e        0x2 
+                0x00000000400785b4       0xe6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+ *fill*         0x000000004007869a        0x2 
  .text.print_flash_info
-                0x0000000040078690       0xee /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x000000004007869c       0xee /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0xf2 (size before relaxing)
- *fill*         0x000000004007877e        0x2 
+ *fill*         0x000000004007878a        0x2 
  .text.log_invalid_app_partition
-                0x0000000040078780       0x57 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x000000004007878c       0x57 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x5b (size before relaxing)
- *fill*         0x00000000400787d7        0x1 
+ *fill*         0x00000000400787e3        0x1 
  .text.vddsdio_configure
-                0x00000000400787d8       0x33 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x00000000400787e4       0x33 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x37 (size before relaxing)
- *fill*         0x000000004007880b        0x1 
+ *fill*         0x0000000040078817        0x1 
  .text.uart_console_configure
-                0x000000004007880c       0x36 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078818       0x36 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x3a (size before relaxing)
- *fill*         0x0000000040078842        0x2 
+ *fill*         0x000000004007884e        0x2 
  .text.wdt_reset_check
-                0x0000000040078844       0xa2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078850       0xa2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0xae (size before relaxing)
- *fill*         0x00000000400788e6        0x2 
+ *fill*         0x00000000400788f2        0x2 
  .text.update_flash_config
-                0x00000000400788e8       0x68 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x00000000400788f4       0x68 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
  .text.ota_select_crc
-                0x0000000040078950       0x14 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x000000004007895c       0x14 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
  .text.ota_select_valid
-                0x0000000040078964       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078970       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x24 (size before relaxing)
  .text.get_selected_boot_partition
-                0x0000000040078984      0x140 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078990      0x140 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                         0x14c (size before relaxing)
  .text.try_load_partition
-                0x0000000040078ac4       0x34 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078ad0       0x34 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x38 (size before relaxing)
  .text.load_boot_image
-                0x0000000040078af8       0xa6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078b04       0xa6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0xba (size before relaxing)
- *fill*         0x0000000040078b9e        0x2 
+ *fill*         0x0000000040078baa        0x2 
  .text.set_cache_and_start_app
-                0x0000000040078ba0       0xcf /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
- *fill*         0x0000000040078c6f        0x1 
+                0x0000000040078bac       0xcf /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+ *fill*         0x0000000040078c7b        0x1 
  .text.unpack_load_app
-                0x0000000040078c70       0xb2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078c7c       0xb2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0xb6 (size before relaxing)
- *fill*         0x0000000040078d22        0x2 
+ *fill*         0x0000000040078d2e        0x2 
  .text.load_partition_table
-                0x0000000040078d24      0x160 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078d30      0x160 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                         0x17c (size before relaxing)
-                0x0000000040078d24                load_partition_table
+                0x0000000040078d30                load_partition_table
  .text.bootloader_main
-                0x0000000040078e84      0x10f /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078e90      0x10f /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                         0x14f (size before relaxing)
-                0x0000000040078e84                bootloader_main
- *fill*         0x0000000040078f93        0x1 
+                0x0000000040078e90                bootloader_main
+ *fill*         0x0000000040078f9f        0x1 
  .text.__assert_func
-                0x0000000040078f94       0x1f /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078fa0       0x1f /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                          0x23 (size before relaxing)
-                0x0000000040078f94                __assert_func
- *fill*         0x0000000040078fb3        0x1 
+                0x0000000040078fa0                __assert_func
+ *fill*         0x0000000040078fbf        0x1 
  .text.call_start_cpu0
-                0x0000000040078fb4      0x127 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                0x0000000040078fc0      0x127 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
                                         0x133 (size before relaxing)
-                0x0000000040078fb4                call_start_cpu0
- *fill*         0x00000000400790db        0x1 
+                0x0000000040078fc0                call_start_cpu0
+ *fill*         0x00000000400790e7        0x1 
  .text.bootloader_clock_configure
-                0x00000000400790dc       0x6e /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
+                0x00000000400790e8       0x6e /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
                                          0x76 (size before relaxing)
-                0x00000000400790dc                bootloader_clock_configure
- *fill*         0x000000004007914a        0x2 
+                0x00000000400790e8                bootloader_clock_configure
+ *fill*         0x0000000040079156        0x2 
  .text.spi_to_esp_err
-                0x000000004007914c       0x22 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
- *fill*         0x000000004007916e        0x2 
+                0x0000000040079158       0x22 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x000000004007917a        0x2 
  .text.bootloader_flash_read_allow_decrypt
-                0x0000000040079170       0x97 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                0x000000004007917c       0x97 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
                                          0x9b (size before relaxing)
- *fill*         0x0000000040079207        0x1 
+ *fill*         0x0000000040079213        0x1 
  .text.bootloader_flash_read_no_decrypt
-                0x0000000040079208       0x32 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                0x0000000040079214       0x32 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
                                          0x36 (size before relaxing)
- *fill*         0x000000004007923a        0x2 
+ *fill*         0x0000000040079246        0x2 
  .text.bootloader_mmap
-                0x000000004007923c       0xb1 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                0x0000000040079248       0xb1 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
                                          0xb9 (size before relaxing)
-                0x000000004007923c                bootloader_mmap
- *fill*         0x00000000400792ed        0x3 
+                0x0000000040079248                bootloader_mmap
+ *fill*         0x00000000400792f9        0x3 
  .text.bootloader_munmap
-                0x00000000400792f0       0x36 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
-                0x00000000400792f0                bootloader_munmap
- *fill*         0x0000000040079326        0x2 
+                0x00000000400792fc       0x36 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                0x00000000400792fc                bootloader_munmap
+ *fill*         0x0000000040079332        0x2 
  .text.bootloader_flash_read
-                0x0000000040079328       0x86 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
-                0x0000000040079328                bootloader_flash_read
- *fill*         0x00000000400793ae        0x2 
+                0x0000000040079334       0x86 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                0x0000000040079334                bootloader_flash_read
+ *fill*         0x00000000400793ba        0x2 
  .text.bootloader_fill_random
-                0x00000000400793b0       0x59 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
-                0x00000000400793b0                bootloader_fill_random
- *fill*         0x0000000040079409        0x3 
+                0x00000000400793bc       0x59 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
+                0x00000000400793bc                bootloader_fill_random
+ *fill*         0x0000000040079415        0x3 
  .text.bootloader_random_enable
-                0x000000004007940c      0x1d5 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
-                0x000000004007940c                bootloader_random_enable
- *fill*         0x00000000400795e1        0x3 
+                0x0000000040079418      0x1d5 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
+                0x0000000040079418                bootloader_random_enable
+ *fill*         0x00000000400795ed        0x3 
  .text.bootloader_random_disable
-                0x00000000400795e4      0x11c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
-                0x00000000400795e4                bootloader_random_disable
+                0x00000000400795f0      0x11c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
+                0x00000000400795f0                bootloader_random_disable
  .text.should_map
-                0x0000000040079700       0x30 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x000000004007970c       0x30 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
  .text.verify_image_header
-                0x0000000040079730       0x7e /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
- *fill*         0x00000000400797ae        0x2 
+                0x000000004007973c       0x7e /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+ *fill*         0x00000000400797ba        0x2 
  .text.verify_segment_header
-                0x00000000400797b0       0x71 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x00000000400797bc       0x71 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                          0x79 (size before relaxing)
- *fill*         0x0000000040079821        0x3 
+ *fill*         0x000000004007982d        0x3 
  .text.verify_checksum
-                0x0000000040079824       0x87 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x0000000040079830       0x87 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                          0x8f (size before relaxing)
- *fill*         0x00000000400798ab        0x1 
+ *fill*         0x00000000400798b7        0x1 
  .text.verify_simple_hash
-                0x00000000400798ac       0x5b /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x00000000400798b8       0x5b /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                          0x6a (size before relaxing)
- *fill*         0x0000000040079907        0x1 
+ *fill*         0x0000000040079913        0x1 
  .text.should_load
-                0x0000000040079908       0x44 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x0000000040079914       0x44 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                          0x48 (size before relaxing)
  .text.process_segment
-                0x000000004007994c      0x1bd /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x0000000040079958      0x1bd /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                         0x1d1 (size before relaxing)
- *fill*         0x0000000040079b09        0x3 
+ *fill*         0x0000000040079b15        0x3 
  .text.esp_image_load
-                0x0000000040079b0c      0x24a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x0000000040079b18      0x24a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                         0x262 (size before relaxing)
-                0x0000000040079b0c                esp_image_load
- *fill*         0x0000000040079d56        0x2 
+                0x0000000040079b18                esp_image_load
+ *fill*         0x0000000040079d62        0x2 
  .text.esp_partition_table_basic_verify
-                0x0000000040079d58       0xb1 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
+                0x0000000040079d64       0xb1 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
                                          0xb5 (size before relaxing)
-                0x0000000040079d58                esp_partition_table_basic_verify
- *fill*         0x0000000040079e09        0x3 
+                0x0000000040079d64                esp_partition_table_basic_verify
+ *fill*         0x0000000040079e15        0x3 
  .text.bootloader_sha256_start
-                0x0000000040079e0c       0x12 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
-                0x0000000040079e0c                bootloader_sha256_start
- *fill*         0x0000000040079e1e        0x2 
+                0x0000000040079e18       0x12 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+                0x0000000040079e18                bootloader_sha256_start
+ *fill*         0x0000000040079e2a        0x2 
  .text.bootloader_sha256_data
-                0x0000000040079e20       0xa1 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+                0x0000000040079e2c       0xa1 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
                                          0xa9 (size before relaxing)
-                0x0000000040079e20                bootloader_sha256_data
- *fill*         0x0000000040079ec1        0x3 
+                0x0000000040079e2c                bootloader_sha256_data
+ *fill*         0x0000000040079ecd        0x3 
  .text.bootloader_sha256_finish
-                0x0000000040079ec4       0xdc /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+                0x0000000040079ed0       0xdc /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
                                          0xf0 (size before relaxing)
-                0x0000000040079ec4                bootloader_sha256_finish
+                0x0000000040079ed0                bootloader_sha256_finish
  .text.esp_log_early_timestamp
-                0x0000000040079fa0       0x1f /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
-                0x0000000040079fa0                esp_log_timestamp
-                0x0000000040079fa0                esp_log_early_timestamp
- *fill*         0x0000000040079fbf        0x1 
+                0x0000000040079fac       0x1f /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
+                0x0000000040079fac                esp_log_timestamp
+                0x0000000040079fac                esp_log_early_timestamp
+ *fill*         0x0000000040079fcb        0x1 
  .text.esp_rom_spiflash_read_status
-                0x0000000040079fc0       0x61 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
-                0x0000000040079fc0                esp_rom_spiflash_read_status
- *fill*         0x000000004007a021        0x3 
+                0x0000000040079fcc       0x61 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+                0x0000000040079fcc                esp_rom_spiflash_read_status
+ *fill*         0x000000004007a02d        0x3 
  .text.esp_rom_spiflash_wait_idle
-                0x000000004007a024       0x32 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
-                0x000000004007a024                esp_rom_spiflash_wait_idle
- *fill*         0x000000004007a056        0x2 
+                0x000000004007a030       0x32 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+                0x000000004007a030                esp_rom_spiflash_wait_idle
+ *fill*         0x000000004007a062        0x2 
  .text.esp_rom_spiflash_read_data
-                0x000000004007a058       0xe2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
- *fill*         0x000000004007a13a        0x2 
+                0x000000004007a064       0xe2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+ *fill*         0x000000004007a146        0x2 
  .text.esp_rom_spiflash_read_statushigh
-                0x000000004007a13c       0x21 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
-                0x000000004007a13c                esp_rom_spiflash_read_statushigh
- *fill*         0x000000004007a15d        0x3 
+                0x000000004007a148       0x21 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+                0x000000004007a148                esp_rom_spiflash_read_statushigh
+ *fill*         0x000000004007a169        0x3 
  .text.esp_rom_spiflash_write_status
-                0x000000004007a160       0x34 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+                0x000000004007a16c       0x34 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
                                          0x38 (size before relaxing)
-                0x000000004007a160                esp_rom_spiflash_write_status
+                0x000000004007a16c                esp_rom_spiflash_write_status
  .text.esp_rom_spiflash_unlock
-                0x000000004007a194       0x6a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+                0x000000004007a1a0       0x6a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
                                          0x7e (size before relaxing)
-                0x000000004007a194                esp_rom_spiflash_unlock
- *fill*         0x000000004007a1fe        0x2 
+                0x000000004007a1a0                esp_rom_spiflash_unlock
+ *fill*         0x000000004007a20a        0x2 
  .text.esp_rom_spiflash_read
-                0x000000004007a200      0x284 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
-                0x000000004007a200                esp_rom_spiflash_read
+                0x000000004007a20c      0x284 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+                0x000000004007a20c                esp_rom_spiflash_read
  .text.rtc_clk_32k_enable_internal
-                0x000000004007a484       0x81 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
- *fill*         0x000000004007a505        0x3 
+                0x000000004007a490       0x81 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ *fill*         0x000000004007a511        0x3 
  .text.rtc_clk_32k_enable
-                0x000000004007a508       0x2d /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a508                rtc_clk_32k_enable
- *fill*         0x000000004007a535        0x3 
+                0x000000004007a514       0x2d /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a514                rtc_clk_32k_enable
+ *fill*         0x000000004007a541        0x3 
  .text.rtc_clk_8m_enable
-                0x000000004007a538       0x99 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a538                rtc_clk_8m_enable
- *fill*         0x000000004007a5d1        0x3 
+                0x000000004007a544       0x99 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a544                rtc_clk_8m_enable
+ *fill*         0x000000004007a5dd        0x3 
  .text.rtc_clk_8m_enabled
-                0x000000004007a5d4       0x19 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a5d4                rtc_clk_8m_enabled
- *fill*         0x000000004007a5ed        0x3 
+                0x000000004007a5e0       0x19 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a5e0                rtc_clk_8m_enabled
+ *fill*         0x000000004007a5f9        0x3 
  .text.rtc_clk_8md256_enabled
-                0x000000004007a5f0       0x1a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a5f0                rtc_clk_8md256_enabled
- *fill*         0x000000004007a60a        0x2 
+                0x000000004007a5fc       0x1a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a5fc                rtc_clk_8md256_enabled
+ *fill*         0x000000004007a616        0x2 
  .text.rtc_clk_xtal_freq_estimate
-                0x000000004007a60c       0x9e /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                         0xa6 (size before relaxing)
- *fill*         0x000000004007a6aa        0x2 
+                0x000000004007a618       0xa6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                                         0xb2 (size before relaxing)
+ *fill*         0x000000004007a6be        0x2 
  .text.rtc_clk_slow_freq_set
-                0x000000004007a6ac       0x27 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a6ac                rtc_clk_slow_freq_set
- *fill*         0x000000004007a6d3        0x1 
+                0x000000004007a6c0       0x27 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a6c0                rtc_clk_slow_freq_set
+ *fill*         0x000000004007a6e7        0x1 
  .text.rtc_clk_slow_freq_get
-                0x000000004007a6d4       0x10 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a6d4                rtc_clk_slow_freq_get
+                0x000000004007a6e8       0x10 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a6e8                rtc_clk_slow_freq_get
  .text.rtc_clk_fast_freq_set
-                0x000000004007a6e4       0x2a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a6e4                rtc_clk_fast_freq_set
- *fill*         0x000000004007a70e        0x2 
+                0x000000004007a6f8       0x2a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a6f8                rtc_clk_fast_freq_set
+ *fill*         0x000000004007a722        0x2 
  .text.rtc_clk_fast_freq_get
-                0x000000004007a710       0x10 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a710                rtc_clk_fast_freq_get
+                0x000000004007a724       0x10 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a724                rtc_clk_fast_freq_get
  .text.rtc_clk_bbpll_set
-                0x000000004007a720      0x170 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a734      0x170 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                         0x178 (size before relaxing)
-                0x000000004007a720                rtc_clk_bbpll_set
+                0x000000004007a734                rtc_clk_bbpll_set
  .text.rtc_clk_xtal_freq_get
-                0x000000004007a890       0x38 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a8a4       0x38 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x3c (size before relaxing)
-                0x000000004007a890                rtc_get_xtal
-                0x000000004007a890                rtc_clk_xtal_freq_get
+                0x000000004007a8a4                rtc_get_xtal
+                0x000000004007a8a4                rtc_clk_xtal_freq_get
  .text.rtc_clk_cpu_freq_get
-                0x000000004007a8c8       0x88 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a8dc       0x88 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x94 (size before relaxing)
-                0x000000004007a8c8                rtc_clk_cpu_freq_get
+                0x000000004007a8dc                rtc_clk_cpu_freq_get
  .text.rtc_clk_cpu_freq_value
-                0x000000004007a950       0x45 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007a950                rtc_clk_cpu_freq_value
- *fill*         0x000000004007a995        0x3 
+                0x000000004007a964       0x45 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a964                rtc_clk_cpu_freq_value
+ *fill*         0x000000004007a9a9        0x3 
  .text.rtc_clk_xtal_freq_update
-                0x000000004007a998       0x12 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a9ac       0x12 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x16 (size before relaxing)
-                0x000000004007a998                rtc_clk_xtal_freq_update
- *fill*         0x000000004007a9aa        0x2 
+                0x000000004007a9ac                rtc_clk_xtal_freq_update
+ *fill*         0x000000004007a9be        0x2 
  .text.rtc_clk_apb_freq_update
-                0x000000004007a9ac       0x13 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a9c0       0x13 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                          0x16 (size before relaxing)
-                0x000000004007a9ac                rtc_clk_apb_freq_update
- *fill*         0x000000004007a9bf        0x1 
+                0x000000004007a9c0                rtc_clk_apb_freq_update
+ *fill*         0x000000004007a9d3        0x1 
  .text.rtc_clk_cpu_freq_set
-                0x000000004007a9c0      0x1c4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007a9d4      0x1c4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                         0x1d8 (size before relaxing)
-                0x000000004007a9c0                rtc_clk_cpu_freq_set
+                0x000000004007a9d4                rtc_clk_cpu_freq_set
  .text.rtc_clk_apb_freq_get
-                0x000000004007ab84       0x2a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                0x000000004007ab84                rtc_clk_apb_freq_get
- *fill*         0x000000004007abae        0x2 
+                0x000000004007ab98       0x2a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007ab98                rtc_clk_apb_freq_get
+ *fill*         0x000000004007abc2        0x2 
  .text.rtc_clk_init
-                0x000000004007abb0      0x182 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007abc4      0x182 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
                                         0x1ba (size before relaxing)
-                0x000000004007abb0                rtc_clk_init
- *fill*         0x000000004007ad32        0x2 
+                0x000000004007abc4                rtc_clk_init
+ *fill*         0x000000004007ad46        0x2 
  .text.rtc_vddsdio_get_config
-                0x000000004007ad34      0x10a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
-                0x000000004007ad34                rtc_vddsdio_get_config
- *fill*         0x000000004007ae3e        0x2 
+                0x000000004007ad48      0x10a /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
+                0x000000004007ad48                rtc_vddsdio_get_config
+ *fill*         0x000000004007ae52        0x2 
  .text.rtc_vddsdio_set_config
-                0x000000004007ae40       0x46 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
-                0x000000004007ae40                rtc_vddsdio_set_config
- *fill*         0x000000004007ae86        0x2 
+                0x000000004007ae54       0x46 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
+                0x000000004007ae54                rtc_vddsdio_set_config
+ *fill*         0x000000004007ae9a        0x2 
  .text.rtc_clk_cal_internal
-                0x000000004007ae88      0x161 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
- *fill*         0x000000004007afe9        0x3 
+                0x000000004007ae9c      0x161 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+ *fill*         0x000000004007affd        0x3 
  .text.rtc_clk_cal_ratio
-                0x000000004007afec       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000004007b000       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
                                          0x24 (size before relaxing)
-                0x000000004007afec                rtc_clk_cal_ratio
+                0x000000004007b000                rtc_clk_cal_ratio
  .text.rtc_clk_wait_for_slow_cycle
-                0x000000004007b00c       0x79 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
-                0x000000004007b00c                rtc_clk_wait_for_slow_cycle
- *fill*         0x000000004007b085        0x3 
- .text          0x000000004007b088       0x26 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
-                0x000000004007b088                __bswapsi2
- *fill*         0x000000004007b0ae        0x2 
+                0x000000004007b020       0x79 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000004007b020                rtc_clk_wait_for_slow_cycle
+ *fill*         0x000000004007b099        0x3 
+ .text          0x000000004007b09c       0x26 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+                0x000000004007b09c                __bswapsi2
+ *fill*         0x000000004007b0c2        0x2 
  .text.index_to_partition
-                0x000000004007b0b0       0x48 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
- *fill*         0x000000004007b0f8        0x0 
+                0x000000004007b0c4       0x48 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
+ *fill*         0x000000004007b10c        0x0 
  .text.clk_val_is_valid
-                0x000000004007b0f8       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007b10c       0x20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
  .text.reg_val_to_clk_val
-                0x000000004007b118        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000004007b12c        0x8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
  .text.clk_val_to_reg_val
-                0x000000004007b120        0xe /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x0 
- *fill*         0x000000004007b12e        0x2 
- .text          0x000000004007b130      0x281 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
-                0x000000004007b130                __udivdi3
+                0x000000004007b134        0xe /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x0 
+ *fill*         0x000000004007b142        0x2 
+ .text          0x000000004007b144      0x281 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
+                0x000000004007b144                __udivdi3
  *(.iram1 .iram1.*)
- *fill*         0x000000004007b3b1        0x3 
- .iram1         0x000000004007b3b4      0x1df /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
- *fill*         0x000000004007b593        0x0 
+ *fill*         0x000000004007b3c5        0x3 
+ .iram1         0x000000004007b3c8      0x1df /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+ *fill*         0x000000004007b5a7        0x0 
  *(.fini.literal)
  *(.fini)
  *(.gnu.version)
-                0x000000004007b593                _text_end = ABSOLUTE (.)
-                0x000000004007b593                _etext = .
+                0x000000004007b5a7                _text_end = ABSOLUTE (.)
+                0x000000004007b5a7                _etext = .
                 [!provide]                        PROVIDE (abort, 0x4000bba4)
                 [!provide]                        PROVIDE (__absvdi2, 0x4006387c)
                 [!provide]                        PROVIDE (__absvsi2, 0x40063868)
@@ -2820,21 +2820,21 @@ OUTPUT(/Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader
  .debug_frame   0x0000000000000b28       0x28 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
  .debug_frame   0x0000000000000b50       0x28 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
-.debug_info     0x0000000000000000     0x883f
- .debug_info    0x0000000000000000     0x2839 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
- .debug_info    0x0000000000002839      0x264 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
- .debug_info    0x0000000000002a9d      0xc05 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
- .debug_info    0x00000000000036a2      0x258 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
- .debug_info    0x00000000000038fa     0x11e9 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
- .debug_info    0x0000000000004ae3      0x381 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
- .debug_info    0x0000000000004e64      0x44d /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
- .debug_info    0x00000000000052b1      0x900 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
- .debug_info    0x0000000000005bb1      0xaf5 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
- .debug_info    0x00000000000066a6     0x1391 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
- .debug_info    0x0000000000007a37      0x3d8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
- .debug_info    0x0000000000007e0f      0x39b /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
- .debug_info    0x00000000000081aa       0xcd /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
- .debug_info    0x0000000000008277      0x5c8 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
+.debug_info     0x0000000000000000     0x8808
+ .debug_info    0x0000000000000000     0x282e /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+ .debug_info    0x000000000000282e      0x264 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
+ .debug_info    0x0000000000002a92      0xbfa /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+ .debug_info    0x000000000000368c      0x258 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
+ .debug_info    0x00000000000038e4     0x11de /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+ .debug_info    0x0000000000004ac2      0x376 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
+ .debug_info    0x0000000000004e38      0x44d /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+ .debug_info    0x0000000000005285      0x900 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
+ .debug_info    0x0000000000005b85      0xaf5 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+ .debug_info    0x000000000000667a     0x1386 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ .debug_info    0x0000000000007a00      0x3d8 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
+ .debug_info    0x0000000000007dd8      0x39b /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+ .debug_info    0x0000000000008173       0xcd /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+ .debug_info    0x0000000000008240      0x5c8 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
 .debug_abbrev   0x0000000000000000     0x1b04
  .debug_abbrev  0x0000000000000000      0x4db /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
@@ -2852,7 +2852,7 @@ OUTPUT(/Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader
  .debug_abbrev  0x0000000000001945       0x60 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
  .debug_abbrev  0x00000000000019a5      0x15f /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
-.debug_loc      0x0000000000000000     0x4b90
+.debug_loc      0x0000000000000000     0x4b96
  .debug_loc     0x0000000000000000     0x1055 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
  .debug_loc     0x0000000000001055      0x638 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
  .debug_loc     0x000000000000168d       0x91 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
@@ -2861,11 +2861,11 @@ OUTPUT(/Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader
  .debug_loc     0x0000000000002315      0x135 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
  .debug_loc     0x000000000000244a      0x4ad /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
  .debug_loc     0x00000000000028f7      0xa20 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
- .debug_loc     0x0000000000003317      0x9d4 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
- .debug_loc     0x0000000000003ceb      0x2d2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
- .debug_loc     0x0000000000003fbd      0x1ca /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
- .debug_loc     0x0000000000004187       0x21 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
- .debug_loc     0x00000000000041a8      0x9e8 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
+ .debug_loc     0x0000000000003317      0x9da /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ .debug_loc     0x0000000000003cf1      0x2d2 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
+ .debug_loc     0x0000000000003fc3      0x1ca /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)
+ .debug_loc     0x000000000000418d       0x21 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+ .debug_loc     0x00000000000041ae      0x9e8 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
 .debug_aranges  0x0000000000000000      0x4d8
  .debug_aranges
@@ -2929,26 +2929,26 @@ OUTPUT(/Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader
  .debug_line    0x000000000000505c      0x195 /Users/martinschmidli/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
 .debug_str      0x0000000000000000     0x26da
- .debug_str     0x0000000000000000      0xe05 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
-                                        0xeea (size before relaxing)
- .debug_str     0x0000000000000e05      0x23c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
+ .debug_str     0x0000000000000000      0xdf5 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/main/libmain.a(bootloader_start.o)
+                                        0xeda (size before relaxing)
+ .debug_str     0x0000000000000df5      0x23c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
                                         0x379 (size before relaxing)
- .debug_str     0x0000000000001041      0x283 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
-                                        0x59c (size before relaxing)
- .debug_str     0x00000000000012c4       0x90 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
+ .debug_str     0x0000000000001031      0x283 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                                        0x58c (size before relaxing)
+ .debug_str     0x00000000000012b4       0x90 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
                                         0x23f (size before relaxing)
- .debug_str     0x0000000000001354      0x2e6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
-                                        0x9ef (size before relaxing)
- .debug_str     0x000000000000163a       0x6c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
-                                        0x39d (size before relaxing)
- .debug_str     0x00000000000016a6       0xfe /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+ .debug_str     0x0000000000001344      0x2e6 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                                        0x9df (size before relaxing)
+ .debug_str     0x000000000000162a       0x6c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
+                                        0x38d (size before relaxing)
+ .debug_str     0x0000000000001696       0xfe /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
                                         0x2c1 (size before relaxing)
- .debug_str     0x00000000000017a4      0x1ac /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
+ .debug_str     0x0000000000001794      0x1bc /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/log/liblog.a(log.o)
                                         0x360 (size before relaxing)
  .debug_str     0x0000000000001950      0x48c /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
                                         0x758 (size before relaxing)
  .debug_str     0x0000000000001ddc      0x4ed /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                        0x8fc (size before relaxing)
+                                        0x8ec (size before relaxing)
  .debug_str     0x00000000000022c9       0xbe /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_init.o)
                                         0x238 (size before relaxing)
  .debug_str     0x0000000000002387      0x131 /Users/martinschmidli/esp/projects/atas-node2/build/bootloader/soc/libsoc.a(rtc_time.o)

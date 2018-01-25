@@ -110,6 +110,8 @@ mdns.o: /Users/martinschmidli/esp/esp-idf/components/mdns/./mdns.c \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip4_addr.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip6_addr.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/apps/dhcpserver.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_types.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/string.h \
  /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/string.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/pbuf.h \
@@ -125,14 +127,16 @@ mdns.o: /Users/martinschmidli/esp/esp-idf/components/mdns/./mdns.c \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip4.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip6.h \
+ /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/mld6.h \
+ /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/priv/tcpip_priv.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/tcpip.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/timers.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/sys.h \
- /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/priv/tcpip_priv.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_types.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_crypto_types.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event_loop.h \
+ /Users/martinschmidli/esp/esp-idf/components/mdns/private_include/mdns_private.h
 
 /Users/martinschmidli/esp/esp-idf/components/mdns/include/mdns.h:
 
@@ -356,6 +360,10 @@ mdns.o: /Users/martinschmidli/esp/esp-idf/components/mdns/./mdns.c \
 
 /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/apps/dhcpserver.h:
 
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_types.h:
+
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/string.h:
 
 /Users/martinschmidli/esp/esp-idf/components/newlib/include/sys/string.h:
@@ -386,19 +394,23 @@ mdns.o: /Users/martinschmidli/esp/esp-idf/components/mdns/./mdns.c \
 
 /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip6.h:
 
+/Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/mld6.h:
+
+/Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/priv/tcpip_priv.h:
+
 /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/tcpip.h:
 
 /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/timers.h:
 
 /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/sys.h:
 
-/Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/priv/tcpip_priv.h:
-
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi.h:
-
-/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_types.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_crypto_types.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event_loop.h:
+
+/Users/martinschmidli/esp/esp-idf/components/mdns/private_include/mdns_private.h:
 /Users/martinschmidli/esp/esp-idf/components/mdns/./mdns.c:

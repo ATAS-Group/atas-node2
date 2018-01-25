@@ -123,6 +123,7 @@ libraries/ESPmDNS/src//ESPmDNS.o: \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/HardwareSerial.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Esp.h \
  /Users/martinschmidli/esp/projects/atas-node2/components/arduino/variants/esp32/pins_arduino.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/IPv6Address.h \
  /Users/martinschmidli/esp/esp-idf/components/mdns/include/mdns.h \
  /Users/martinschmidli/esp/esp-idf/components/tcpip_adapter/include/tcpip_adapter.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/queue.h \
@@ -154,10 +155,26 @@ libraries/ESPmDNS/src//ESPmDNS.o: \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip4_addr.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/lwip/ip6_addr.h \
  /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/apps/dhcpserver.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_types.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_crypto_types.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFi.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Print.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiType.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiSTA.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiGeneric.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event_loop.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiAP.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiScan.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiClient.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Client.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiServer.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Server.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiUdp.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Udp.h \
+ /Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/cbuf.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_crypto_types.h
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/ESPmDNS/src//ESPmDNS.h:
 
@@ -405,6 +422,8 @@ libraries/ESPmDNS/src//ESPmDNS.o: \
 
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/variants/esp32/pins_arduino.h:
 
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/IPv6Address.h:
+
 /Users/martinschmidli/esp/esp-idf/components/mdns/include/mdns.h:
 
 /Users/martinschmidli/esp/esp-idf/components/tcpip_adapter/include/tcpip_adapter.h:
@@ -467,11 +486,43 @@ libraries/ESPmDNS/src//ESPmDNS.o: \
 
 /Users/martinschmidli/esp/esp-idf/components/lwip/include/lwip/apps/dhcpserver.h:
 
-/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi.h:
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_types.h:
 
-/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_crypto_types.h:
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFi.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Print.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiType.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiSTA.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiGeneric.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event_loop.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_event.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiAP.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiScan.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiClient.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Client.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiServer.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Server.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/WiFi/src/WiFiUdp.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/Udp.h:
+
+/Users/martinschmidli/esp/projects/atas-node2/components/arduino/cores/esp32/cbuf.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_wifi_crypto_types.h:
 /Users/martinschmidli/esp/projects/atas-node2/components/arduino/libraries/ESPmDNS/src//ESPmDNS.cpp:

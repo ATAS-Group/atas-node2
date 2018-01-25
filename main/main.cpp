@@ -156,6 +156,10 @@ void buttonIntTask(void *pvParameters)
 				// When Button was realesed, check the time the button was pressed
 				if(buttonReleasedTime - buttonPressedTime > alarmTriggerTime){	
 					manualAlarmActive = !manualAlarmActive;
+					// Audio Signal for change
+					atassound->enable();
+					delay(100);
+					atassound->mute();
 				}	
 			}	
 			last = button_ts;	
@@ -179,7 +183,7 @@ void alarmHandler(void * parameter){
 			atasdisplay->displayAlarm(static_cast<Alarm>(inDangerzone));
 			// play sound
 			printf("Atassound: enable sound\n");
-			//atassound->enable();
+			atassound->enable();
 		} 
 		// no Danger
 		else {
@@ -208,7 +212,7 @@ void alarmHandler(void * parameter){
 					break;
 			}				
 		}	
-		vTaskDelay(1000 / portTICK_RATE_MS);
+		vTaskDelay(2000 / portTICK_RATE_MS);
 	}
 }
 
@@ -254,19 +258,33 @@ void buttonCallback(void *args){
 
 void displayHandler(void * parameter){
 	while(1){
+		
 		// check if we need to redraw the display	
-		if(atasdisplay->getHasChanged()==true){
+		if(atasdisplay->getHasChanged() == true){
+			printf("atasdisplay: CHANGED\n");
 			
 			if(xSemaphoreTake( xSPISemaphore, portMAX_DELAY) == pdTRUE){
+				//change priotity so drawing is not disturbed
+				vTaskPrioritySet(xDisplayHandler,4);
 				// redraw
-				//printf("atasdisplay: semaphore taken\n");
+				printf("atasdisplay: semaphore taken\n");
+				
 				atasdisplay->updateDisplay();
 				// make sure picture is all drawn
-				delay(3000);
+				printf("atasdisplay: wait for finish drawn\n");
+		
 				xSemaphoreGive(xSPISemaphore);
+				
+				printf("atasdisplay: drawing done\n");
+				// reset priority
+				vTaskPrioritySet(xDisplayHandler,1);
+			}else{
+				printf("atasdisplay: cannot get semaphore\n");
 			}
+		}else{
+			printf("atasdisplay: NO CHANGE\n");
 		}
-		vTaskDelay(500 / portTICK_RATE_MS);
+		vTaskDelay(1000 / portTICK_RATE_MS);
 	}
 }
 
@@ -294,9 +312,9 @@ extern "C" void app_main()
 		tsqueue = xQueueCreate(2, sizeof(uint32_t));
 	
 		xTaskCreate(&displayHandler,"displayHandler",10000,NULL,1,&xDisplayHandler);	
+		xTaskCreate(&alarmHandler,"alarmHandler",10000,NULL,1,&xAlarmHandler);	
 		xTaskCreate(&buttonIntTask, "buttonIntTask", 10000, &tsqueue, 1, NULL);
 		xTaskCreate(&gpsHandler,"gpsHandler",10000,NULL,1,&xGPSHandler);
-		xTaskCreate(&alarmHandler,"alarmHandler",10000,NULL,1,&xAlarmHandler);
 		xTaskCreate(&loraHandler,"loraHandler",10000,NULL,1,&xLoraHandler);
 		vTaskStartScheduler();		
 	 }else{

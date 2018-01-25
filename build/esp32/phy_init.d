@@ -71,6 +71,25 @@ phy_init.o: \
  /Users/martinschmidli/esp/esp-idf/components/nvs_flash/include/nvs.h \
  /Users/martinschmidli/esp/esp-idf/components/nvs_flash/include/nvs_flash.h \
  /Users/martinschmidli/esp/esp-idf/components/nvs_flash/include/nvs.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/xtensa_config.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/projdefs.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portable.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/deprecated_definitions.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portmacro.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/tie/xt_core.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtruntime.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/specreg.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtruntime-core-state.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_crosscore_int.h \
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_timer.h \
+ /Users/martinschmidli/esp/esp-idf/components/heap/include/esp_heap_caps.h \
+ /Users/martinschmidli/esp/esp-idf/components/heap/include/multi_heap.h \
+ /Users/martinschmidli/esp/esp-idf/components/soc/include/soc/soc_memory_layout.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portbenchmark.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/mpu_wrappers.h \
+ /Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portmacro.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/./phy.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/./phy_init_data.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_coexist.h \
@@ -217,6 +236,44 @@ phy_init.o: \
 /Users/martinschmidli/esp/esp-idf/components/nvs_flash/include/nvs_flash.h:
 
 /Users/martinschmidli/esp/esp-idf/components/nvs_flash/include/nvs.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/FreeRTOS.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/FreeRTOSConfig.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/xtensa_config.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/projdefs.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portable.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/deprecated_definitions.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portmacro.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/tie/xt_core.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtruntime.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/config/specreg.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/xtensa/xtruntime-core-state.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_crosscore_int.h:
+
+/Users/martinschmidli/esp/esp-idf/components/esp32/include/esp_timer.h:
+
+/Users/martinschmidli/esp/esp-idf/components/heap/include/esp_heap_caps.h:
+
+/Users/martinschmidli/esp/esp-idf/components/heap/include/multi_heap.h:
+
+/Users/martinschmidli/esp/esp-idf/components/soc/include/soc/soc_memory_layout.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portbenchmark.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/mpu_wrappers.h:
+
+/Users/martinschmidli/esp/esp-idf/components/freertos/include/freertos/portmacro.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/./phy.h:
 

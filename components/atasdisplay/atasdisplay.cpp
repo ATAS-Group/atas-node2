@@ -64,7 +64,7 @@ void Atasdisplay::displayGpsError(){
 
 void Atasdisplay::displayLoraStatus(String status){
 	if(state == dashboard){
-		printf("atasdisplay: print status\n");
+		printf("atasdisplay: set Lora status\n");
 		display->fillRect(60, 101, 140, 99, GxEPD_WHITE);
 		display->setCursor(60, 155);
 		display->println(status);
@@ -79,15 +79,16 @@ void Atasdisplay::displayLoraData(int time){
 
 void Atasdisplay::updateDisplay(){
 	if(hasChanged == true){
-		display->update();
 		hasChanged = false;
+		display->update();
+		delay(4000);
 	}
 }
 
 
 
 void Atasdisplay::displayDashboard(){
-	printf("atasdisplay: displayDashboard\n");
+	printf("atasdisplay: set Display Dashboard\n");
 	if(state != dashboard){
 		display->setFont(fontsans9);	
 		display->fillScreen(GxEPD_WHITE);

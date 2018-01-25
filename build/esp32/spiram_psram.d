@@ -57,7 +57,8 @@ spiram_psram.o: \
  /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/spi_common.h \
  /Users/martinschmidli/esp/esp-idf/components/soc/esp32/include/soc/spi_struct.h \
  /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/lldesc.h \
- /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/queue.h
+ /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/queue.h \
+ /Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h
 
 /Users/martinschmidli/esp/projects/atas-node2/build/include/sdkconfig.h:
 
@@ -174,4 +175,6 @@ spiram_psram.o: \
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/lldesc.h:
 
 /Users/martinschmidli/esp/esp-idf/components/esp32/include/rom/queue.h:
+
+/Users/martinschmidli/esp/esp-idf/components/driver/include/driver/periph_ctrl.h:
 /Users/martinschmidli/esp/esp-idf/components/esp32/./spiram_psram.c:
